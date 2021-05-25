@@ -25,14 +25,23 @@ class ShoeCell: UICollectionViewCell {
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard var shoe = shoe else { return }
-        if heartButton.currentImage == UIImage(systemName: "heart") {
-            shoe.isFavorited = true
-            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            delegate?.didTapHeart(button: heartButton, shoe: shoe)
-        } else {
-            shoe.isFavorited = false
-            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+                if heartButton.currentImage == UIImage(systemName: "heart") {
+                    shoe.isFavorited = true
+                    shoe.isInCart = true
+                    heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    delegate?.didTapHeart(button: heartButton, shoe: shoe)
+                } else {
+                    shoe.isFavorited = false
+                    shoe.isInCart = false
+                    heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+//        shoe.isFavorited.toggle()
+//        if shoe.isFavorited {
+//            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//            delegate?.didTapHeart(button: heartButton, shoe: shoe)
+//        } else {
+//            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//        }
     }
     
     func updateView(shoe: Shoe) {

@@ -28,15 +28,22 @@ struct DataService {
     }
     
     mutating func addShoe(shoe: Shoe) {
-        cart.append(shoe)
         var selectedShoe = shoe
         selectedShoe.isFavorited = true
         selectedShoe.isInCart = true
+        cart.append(shoe)
     }
     
-//    mutating func removeShoe(shoe: Shoe) {
-//        cart.remove(at: <#T##Int#>)
-//    }
+    mutating func removeShoe(shoe: Shoe) {
+        if let index = cart.firstIndex(of: shoe) {
+            cart.remove(at: index)
+        }
+//        if shoe.key ==  {
+//
+//        }
+//        let shoeIndex = sho
+//        cart.remove(at: )
+    }
     
-
+    
 }

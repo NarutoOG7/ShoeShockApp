@@ -15,7 +15,6 @@ class CartVC: UIViewController {
 
         cartTableView.dataSource = self
         cartTableView.delegate = self
-        
     }
     
     @IBAction func purchasePressed(_ sender: UIButton) {

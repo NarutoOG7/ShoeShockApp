@@ -19,8 +19,9 @@ class HomeVC: UIViewController {
         shoeCollectionView.dataSource = self
         shoeCollectionView.delegate = self
     }
-
+    
     @IBAction func cartPressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: K.Segues.toCartVC, sender: self)
     }
     
     
@@ -28,6 +29,9 @@ class HomeVC: UIViewController {
         if segue.identifier == K.Segues.toDetailsVC {
             let detailsVC = segue.destination as! DetailsVC
             detailsVC.shoe = selectedShoe
+        } else if segue.identifier == K.Segues.toCartVC {
+            let cartVC = segue.destination as! CartVC
+            // cartVC.cartTableView.reloadData()
         }
     }
 }
@@ -62,12 +66,29 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension HomeVC: ShoeCellDelegate {
     func didTapHeart(button: UIButton, shoe: Shoe) {
-        if shoe.isInCart {
-            
-        } else {
+        //                if shoe.isInCart {
+        //                    DataService.instance.removeShoe(shoe: shoe)
+        //                } else {
+        //                    DataService.instance.addShoe(shoe: shoe)
+        //
+        //                }
+        //        if button.state == .selected {
+        //            DataService.instance.addShoe(shoe: shoe)
+        //
+        //        } else {
+        //            DataService.instance.removeShoe(shoe: shoe)
+        //
+        //        }
+        
+        
+        
+        if shoe.isFavorited {
             DataService.instance.addShoe(shoe: shoe)
-            
+        } else if !shoe.isFavorited{
+            DataService.instance.removeShoe(shoe: shoe)
+            print(DataService.instance.cart)
         }
+        
     }
     
     

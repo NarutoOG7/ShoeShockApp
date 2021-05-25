@@ -107,13 +107,13 @@
                         <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="tat-D2-Vx1">
                             <connections>
                                 <action selector="cartPressed:" destination="BYZ-38-t0r" id="8Rp-I7-8CL"/>
-                                <segue destination="9lI-61-5nZ" kind="show" identifier="ToCartVC" id="3Jq-u3-yAK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="shoeCollectionView" destination="108-iP-LPx" id="Kel-eX-Jpi"/>
                         <segue destination="GKw-FL-iKw" kind="show" identifier="ToDetailsVC" id="Q5m-BZ-1MN"/>
+                        <segue destination="9lI-61-5nZ" kind="show" identifier="ToCartVC" id="Up9-TG-FSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjx-EG-lzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668.1159420289857" y="-337.5"/>
+            <point key="canvasLocation" x="1690" y="-477"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dj5-4o-7Rf">
