@@ -14,12 +14,20 @@ struct  Shoe {
     private(set) public var price: Double
     private(set) public var quantity: Int
     private(set) public var details: String
+    private(set) public var key: String
     
-    init(image: String, name: String, price: Double, quantity: Int, details: String) {
+    var isFavorited: Bool
+    var isInCart: Bool
+    
+    
+    init(image: String, name: String, price: Double, quantity: Int, details: String, key: String, isFavorited: Bool, isInCart: Bool) {
         self.image = image
         self.name = name
         self.price = price
         self.quantity = quantity
         self.details = details
+        self.key = key
+        self.isFavorited = isFavorited
+        self.isInCart = isInCart
     }
 }
