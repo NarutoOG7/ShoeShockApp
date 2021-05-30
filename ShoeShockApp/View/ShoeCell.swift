@@ -21,7 +21,7 @@ class ShoeCell: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     
     var shoe: Shoe?
-    
+    var index = IndexPath()
     var delegate: ShoeCellDelegate?
     
     

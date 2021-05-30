@@ -12,7 +12,7 @@ struct  Shoe: Equatable {
     private(set) public var image: String
     private(set) public var name: String
     private(set) public var price: Double
-    private(set) public var quantity: Int
+    var quantity: Int
     private(set) public var details: String
     private(set) public var key: String
     

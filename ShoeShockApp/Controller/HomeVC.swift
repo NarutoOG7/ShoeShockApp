@@ -49,6 +49,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         let shoe = DataService.instance.shoes[indexPath.row]
         cell.delegate = self
         cell.updateView(shoe: shoe)
+        cell.index = indexPath
         cell.shoe = shoe
         return cell
     }
