@@ -31,8 +31,8 @@ class DetailsVC: UIViewController {
 
     @IBAction func addToBagPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        DataService.instance.cart.append(shoe)
-        print(DataService.instance.cart)
+        DataService.cart.append(shoe)
+        print(DataService.cart)
     }
     
 
