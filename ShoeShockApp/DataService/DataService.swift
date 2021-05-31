@@ -45,7 +45,6 @@ struct DataService {
             selectedShoe.quantity -= 1
         } else {
             DataService.cart.remove(at: index)
-        //    selectedShoe.isFavorited = false
         }
     }
     

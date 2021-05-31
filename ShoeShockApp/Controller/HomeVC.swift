@@ -31,7 +31,7 @@ class HomeVC: UIViewController {
             detailsVC.shoe = selectedShoe
         } else if segue.identifier == K.Segues.toCartVC {
             let cartVC = segue.destination as! CartVC
-            // cartVC.cartTableView.reloadData()
+             
         }
     }
 }
@@ -48,9 +48,9 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.shoeCell, for: indexPath) as! ShoeCell
         let shoe = DataService.instance.shoes[indexPath.row]
         cell.delegate = self
-        cell.updateView(shoe: shoe)
         cell.index = indexPath
         cell.shoe = shoe
+        cell.updateView(shoe: shoe)
         return cell
     }
     
@@ -66,55 +66,12 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 //MARK: - ShoeCellDelegate
 
 extension HomeVC: ShoeCellDelegate {
-//    func didTapHeart(button: UIButton, shoe: Shoe) {
-//        //                if shoe.isInCart {
-//        //                    DataService.instance.removeShoe(shoe: shoe)
-//        //                } else {
-//        //                    DataService.instance.addShoe(shoe: shoe)
-//        //
-//        //                }
-//        //        if button.state == .selected {
-//        //            DataService.instance.addShoe(shoe: shoe)
-//        //
-//        //        } else {
-//        //            DataService.instance.removeShoe(shoe: shoe)
-//        //
-//        //        }
-//
-//
-//
-//        if shoe.isFavorited {
-//            DataService.instance.addShoe(shoe: shoe)
-//        } else if !shoe.isFavorited{
-//            DataService.instance.removeShoe(shoe: shoe)
-//            print(DataService.instance.cart)
-//        }
-//
-//    }
-    
-    
-    
-    
-    func addShoe(button: UIButton, shoe: Shoe) {
-        DataService.instance.addShoe(shoe: shoe)
-    }
-    
-    func removeShoe(button: UIButton, shoe: Shoe) {
-        DataService.instance.removeShoe(shoe: shoe)
-    }
-    
+
     func didTapHeart(button: UIButton, shoe: Shoe) {
-        var selectedShoe = shoe
-//        selectedShoe.isFavorited.toggle()
-        if DataService.cart.contains(shoe) {
-//            selectedShoe.isFavorited = false
-            DataService.instance.removeShoe(shoe: shoe)
-        } else {
-//            selectedShoe.isFavorited = true
+        if !DataService.cart.contains(shoe) {
             DataService.instance.addShoe(shoe: shoe)
+        } else {
+            DataService.instance.removeShoe(shoe: shoe)
         }
     }
-
-
-    
 }
