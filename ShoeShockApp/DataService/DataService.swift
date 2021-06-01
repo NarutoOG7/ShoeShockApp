@@ -21,31 +21,37 @@ struct DataService {
         Shoe(image: "BBShoe07", name: "NIKE MoonShoes", price: 1000.00, quantity: 1, details: "Bounce Bounce", key: "7", isFavorited: false, isInCart: false)
     ]
     
-    static var cart: [Shoe] = []
+    static var cart = [SelectedProduct]()
     
     func getShoes() -> [Shoe] {
         return shoes
     }
     
-    mutating func addShoe(shoe: Shoe) {
-        var selectedShoe = shoe
-        if DataService.cart.contains(selectedShoe) {
-            selectedShoe.quantity += 1
-        } else {
-            DataService.cart.append(shoe)
-            selectedShoe.isFavorited = true
-        }
+    mutating func addShoe(product: Shoe) {
+        let selectedProduct = SelectedProduct(shoe: product, quantity: 1)
+        DataService.cart.append(selectedProduct)
+//        var selectedShoe = shoe
+//        if DataService.cart.contains(selectedShoe) {
+//            selectedShoe.quantity += 1
+//        } else {
+//            DataService.cart.append(shoe)
+//            selectedShoe.isFavorited = true
+//        }
     }
     
-    mutating func removeShoe(shoe: Shoe) {
-        var selectedShoe = shoe
-        guard DataService.cart.contains(shoe) else { return }
-        guard let index = DataService.cart.firstIndex(of: shoe) else { return }
-        if DataService.cart[index].quantity > 1 {
-            selectedShoe.quantity -= 1
-        } else {
-            DataService.cart.remove(at: index)
-        }
+    mutating func removeShoe(product: Shoe) {
+//        var selectedShoe = shoe
+//        guard DataService.cart.contains(shoe) else { return }
+//        guard let index = DataService.cart.firstIndex(of: shoe) else { return }
+//        if DataService.cart[index].quantity > 1 {
+//            selectedShoe.quantity -= 1
+//        } else {
+//            DataService.cart.remove(at: index)
+//        }
+        let selectedProduct = SelectedProduct(shoe: product, quantity: 1)
+        guard DataService.cart.contains(selectedProduct) else { return }
+        guard let index = DataService.cart.firstIndex(of: product) else { return }
+        DataService.cart.remove(at: <#T##Int#>)
     }
     
     func getShoeQuantity(shoe: Shoe) -> Int {
