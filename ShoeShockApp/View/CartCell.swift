@@ -34,4 +34,8 @@ class CartCell: UITableViewCell {
         shoeQuantityLabel.text = "\(shoe.quantity)"
     }
     
+    func onStepperPressed() {
+        
+    }
+    
 }
