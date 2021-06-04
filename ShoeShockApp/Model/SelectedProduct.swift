@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct SelectedProduct {
+struct SelectedProduct: Equatable {
     var shoe: Shoe
     var quantity = 0
 }

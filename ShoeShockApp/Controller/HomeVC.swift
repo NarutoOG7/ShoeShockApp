@@ -68,10 +68,15 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension HomeVC: ShoeCellDelegate {
 
     func didTapHeart(button: UIButton, shoe: Shoe) {
-        if !DataService.cart.contains(shoe) {
-            DataService.instance.addShoe(shoe: shoe)
+        var selectedProduct = SelectedProduct(shoe: shoe).shoe
+        if DataService.instance.shoes.contains(selectedProduct) {
+            print(DataService.cart)
+            DataService.instance.addShoe(product: selectedProduct)
+            print(DataService.cart)
+
         } else {
-            DataService.instance.removeShoe(shoe: shoe)
+            DataService.instance.removeShoe(product: shoe)
+            print(DataService.cart)
         }
     }
 }

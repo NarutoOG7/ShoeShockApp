@@ -28,8 +28,14 @@ struct DataService {
     }
     
     mutating func addShoe(product: Shoe) {
-        let selectedProduct = SelectedProduct(shoe: product, quantity: 1)
-        DataService.cart.append(selectedProduct)
+        var selectedProduct = SelectedProduct(shoe: product, quantity: 1)
+        if DataService.cart.contains(selectedProduct) {
+            selectedProduct.quantity += 1
+        } else {
+            DataService.cart.append(selectedProduct)
+            selectedProduct.shoe.isFavorited = true
+        }
+        
 //        var selectedShoe = shoe
 //        if DataService.cart.contains(selectedShoe) {
 //            selectedShoe.quantity += 1
@@ -48,16 +54,21 @@ struct DataService {
 //        } else {
 //            DataService.cart.remove(at: index)
 //        }
-        let selectedProduct = SelectedProduct(shoe: product, quantity: 1)
+        var selectedProduct = SelectedProduct(shoe: product, quantity: 1)
         guard DataService.cart.contains(selectedProduct) else { return }
-        guard let index = DataService.cart.firstIndex(of: product) else { return }
-        DataService.cart.remove(at: <#T##Int#>)
+        guard let index = DataService.cart.firstIndex(of: selectedProduct) else { return }
+        if DataService.cart[index].quantity > 1 {
+            selectedProduct.quantity -= 1
+        } else {
+            DataService.cart.remove(at: index)
+            print(DataService.cart)
+        }
     }
     
-    func getShoeQuantity(shoe: Shoe) -> Int {
-        guard DataService.cart.contains(shoe) else { return 0 }
-        guard let index = DataService.cart.firstIndex(of: shoe) else { return 0 }
-        return DataService.cart[index].quantity
-    }
+//    func getShoeQuantity(shoe: Shoe) -> Int {
+//        guard DataService.cart.contains(shoe) else { return 0 }
+//        guard let index = DataService.cart.firstIndex(of: shoe) else { return 0 }
+//        return DataService.cart[index].quantity
+//    }
 
 }
