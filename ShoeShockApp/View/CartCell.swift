@@ -15,6 +15,7 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var shoeQuantityLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
+    var shoe: Shoe?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +36,8 @@ class CartCell: UITableViewCell {
     }
     
     func onStepperPressed() {
-        
+        self.shoe?.quantity = Int(stepper.value)
+        self.shoe.
     }
     
 }

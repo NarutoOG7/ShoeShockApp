@@ -54,4 +54,8 @@ struct DataService {
         return DataService.cart[index].quantity
     }
 
+    func calculateTotal() {
+        
+    }
+    
 }
