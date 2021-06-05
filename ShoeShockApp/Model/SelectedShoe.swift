@@ -8,7 +8,12 @@
 import Foundation
 
 
-struct SelectedProduct: Equatable {
+struct SelectedShoe: Equatable {
     var shoe: Shoe
     var quantity = 0
+    var totalCost = 0.0
+    
+    mutating func calculateTotal() {
+        totalCost = shoe.price * Double(quantity)
+    }
 }

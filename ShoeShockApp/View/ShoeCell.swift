@@ -27,7 +27,7 @@ class ShoeCell: UICollectionViewCell {
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let selectedProduct = SelectedProduct(shoe: shoe)
+        let selectedProduct = SelectedShoe(shoe: shoe)
         print(shoes[index.row].isInCart)
         print(shoes[index.row].isFavorited)
         shoes[index.row].isFavorited.toggle()

@@ -26,12 +26,12 @@ class CartVC: UIViewController {
 
 extension CartVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataService.cart.count
+        return Cart.cart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.cartCell, for: indexPath) as! CartCell
-        let shoe = DataService.cart[indexPath.row].shoe
+        let shoe = Cart.cart[indexPath.row].shoe
         cell.updateView(shoe: shoe)
         return cell
     }

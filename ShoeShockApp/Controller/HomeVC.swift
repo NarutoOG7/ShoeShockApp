@@ -12,6 +12,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var shoeCollectionView: UICollectionView!
     
     var selectedShoe: Shoe?
+    var cart = Cart()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,14 @@ class HomeVC: UIViewController {
              
         }
     }
+    
 }
 
 
 //MARK: - CollectionView DataSource and Delegate
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DataService.instance.shoes.count
     }
@@ -66,17 +69,16 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 //MARK: - ShoeCellDelegate
 
 extension HomeVC: ShoeCellDelegate {
-
+    
     func didTapHeart(button: UIButton, shoe: Shoe) {
-        var selectedProduct = SelectedProduct(shoe: shoe).shoe
-        if DataService.instance.shoes.contains(selectedProduct) {
-            print(DataService.cart)
-            DataService.instance.addShoe(product: selectedProduct)
-            print(DataService.cart)
-
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        if !Cart.cart.contains(selectedShoe) {
+            Cart.instance.addShoe(shoe: shoe)
+            print(Cart.cart)
         } else {
-            DataService.instance.removeShoe(product: shoe)
-            print(DataService.cart)
+            Cart.instance.removeShoe(shoe: shoe)
+            print(Cart.cart)
         }
     }
+    
 }

@@ -21,20 +21,20 @@ struct DataService {
         Shoe(image: "BBShoe07", name: "NIKE MoonShoes", price: 1000.00, quantity: 1, details: "Bounce Bounce", key: "7", isFavorited: false, isInCart: false)
     ]
     
-    static var cart = [SelectedProduct]()
+
     
     func getShoes() -> [Shoe] {
         return shoes
     }
     
-    mutating func addShoe(product: Shoe) {
-        var selectedProduct = SelectedProduct(shoe: product, quantity: 1)
-        if DataService.cart.contains(selectedProduct) {
-            selectedProduct.quantity += 1
-        } else {
-            DataService.cart.append(selectedProduct)
-            selectedProduct.shoe.isFavorited = true
-        }
+//    mutating func addShoe(product: Shoe) {
+//        var selectedProduct = SelectedShoe(shoe: product, quantity: 1)
+//        if DataService.cart.contains(selectedProduct) {
+//            selectedProduct.quantity += 1
+//        } else {
+//            DataService.cart.append(selectedProduct)
+//            selectedProduct.shoe.isFavorited = true
+//        }
         
 //        var selectedShoe = shoe
 //        if DataService.cart.contains(selectedShoe) {
@@ -43,28 +43,28 @@ struct DataService {
 //            DataService.cart.append(shoe)
 //            selectedShoe.isFavorited = true
 //        }
-    }
+//    }
     
-    mutating func removeShoe(product: Shoe) {
-//        var selectedShoe = shoe
-//        guard DataService.cart.contains(shoe) else { return }
-//        guard let index = DataService.cart.firstIndex(of: shoe) else { return }
+//    mutating func removeShoe(product: Shoe) {
+////        var selectedShoe = shoe
+////        guard DataService.cart.contains(shoe) else { return }
+////        guard let index = DataService.cart.firstIndex(of: shoe) else { return }
+////        if DataService.cart[index].quantity > 1 {
+////            selectedShoe.quantity -= 1
+////        } else {
+////            DataService.cart.remove(at: index)
+////        }
+//        var selectedProduct = SelectedShoe(shoe: product, quantity: 1)
+//        guard DataService.cart.contains(selectedProduct) else { return }
+//        guard let index = DataService.cart.firstIndex(of: selectedProduct) else { return }
 //        if DataService.cart[index].quantity > 1 {
-//            selectedShoe.quantity -= 1
+//            selectedProduct.quantity -= 1
 //        } else {
 //            DataService.cart.remove(at: index)
+//            print(DataService.cart)
 //        }
-        var selectedProduct = SelectedProduct(shoe: product, quantity: 1)
-        guard DataService.cart.contains(selectedProduct) else { return }
-        guard let index = DataService.cart.firstIndex(of: selectedProduct) else { return }
-        if DataService.cart[index].quantity > 1 {
-            selectedProduct.quantity -= 1
-        } else {
-            DataService.cart.remove(at: index)
-            print(DataService.cart)
-        }
-    }
-    
+//    }
+//
 //    func getShoeQuantity(shoe: Shoe) -> Int {
 //        guard DataService.cart.contains(shoe) else { return 0 }
 //        guard let index = DataService.cart.firstIndex(of: shoe) else { return 0 }
