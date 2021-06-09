@@ -27,15 +27,11 @@ class ShoeCell: UICollectionViewCell {
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let selectedProduct = SelectedShoe(shoe: shoe)
-        print(shoes[index.row].isInCart)
-        print(shoes[index.row].isFavorited)
         shoes[index.row].isFavorited.toggle()
-        print(shoes[index.row].isInCart)
-        print(shoes[index.row].isFavorited)
         delegate?.didTapHeart(button: heartButton, shoe: shoe)
         shoes[index.row].isInCart.toggle()
         updateView(shoe: shoe)
+        print(shoes)
     }
     
     
@@ -44,9 +40,18 @@ class ShoeCell: UICollectionViewCell {
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
+        print(shoes)
         let imageName = shoes[index.row].isFavorited ? "heart.fill" : "heart"
+        
+        
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
+        print("\(shoes[0].isFavorited) called in updateView in ShoeCell")
     }
 }
 
+extension ShoeCell: CartCellHeartDelegate {
+    func updateHeart() {
+        self.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }   
+}
 
