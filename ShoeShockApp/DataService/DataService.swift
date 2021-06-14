@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DataService {
+class DataService {
     
     static var instance = DataService()
     
-    var shoes: [Shoe] = [
+    let shoes: [Shoe] = [
         Shoe(image: "BBShoe01", name: "NIKE Air Max 1", price: 110.00, quantity: 1, details: "Soft", key: "1", isFavorited: false, isInCart: false),
         Shoe(image: "BBShoe02", name: "NIKE Jumpman", price: 100.00, quantity: 1, details: "Jump up your game", key: "2", isFavorited: false, isInCart: false),
         Shoe(image: "BBShoe03", name: "NIKE Air Jordan Retro", price: 1500.00, quantity: 1, details: "Classic", key: "3", isFavorited: false, isInCart: false),
@@ -21,37 +21,11 @@ struct DataService {
         Shoe(image: "BBShoe07", name: "NIKE MoonShoes", price: 1000.00, quantity: 1, details: "Bounce Bounce", key: "7", isFavorited: false, isInCart: false)
     ]
     
-    static var cart: [Shoe] = []
+
     
     func getShoes() -> [Shoe] {
         return shoes
     }
     
-    mutating func addShoe(shoe: Shoe) {
-        var selectedShoe = shoe
-        if DataService.cart.contains(selectedShoe) {
-            selectedShoe.quantity += 1
-        } else {
-            DataService.cart.append(shoe)
-            selectedShoe.isFavorited = true
-        }
-    }
     
-    mutating func removeShoe(shoe: Shoe) {
-        var selectedShoe = shoe
-        guard DataService.cart.contains(shoe) else { return }
-        guard let index = DataService.cart.firstIndex(of: shoe) else { return }
-        if DataService.cart[index].quantity > 1 {
-            selectedShoe.quantity -= 1
-        } else {
-            DataService.cart.remove(at: index)
-        }
-    }
-    
-    func getShoeQuantity(shoe: Shoe) -> Int {
-        guard DataService.cart.contains(shoe) else { return 0 }
-        guard let index = DataService.cart.firstIndex(of: shoe) else { return 0 }
-        return DataService.cart[index].quantity
-    }
-
 }

@@ -8,9 +8,10 @@
 import Foundation
 
 
-struct  Shoe: Equatable {
+class  Shoe { // Equatable
+
     private(set) public var image: String
-    private(set) public var name: String
+    var name: String
     private(set) public var price: Double
     var quantity: Int
     private(set) public var details: String
