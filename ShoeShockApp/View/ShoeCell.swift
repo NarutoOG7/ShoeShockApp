@@ -29,7 +29,7 @@ class ShoeCell: UICollectionViewCell {
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let shoes = dataService.shoes
+        var shoes = dataService.shoes
 
         shoes[index.row].isFavorited.toggle()
         shoes[index.row].isInCart.toggle()
