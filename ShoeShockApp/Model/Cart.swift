@@ -12,6 +12,10 @@ struct Cart {
     static var instance = Cart()
     var cart = [SelectedShoe]()
     
+    func getCartShoes() -> [SelectedShoe] {
+        return cart
+    }
+    
     mutating func addShoe(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         cart.append(selectedShoe)

@@ -23,7 +23,10 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var stepper: UIStepper!
     
     var shoe: Shoe?
-    var shoes = DataService.instance.shoes
+    
+    var dataService = DataService.instance
+    
+//    var shoes = DataService.instance.shoes
     var selectedShoe: SelectedShoe?
     var index = IndexPath()
     var cart = Cart.instance.cart
@@ -50,20 +53,16 @@ class CartCell: UITableViewCell {
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         guard let shoe = shoe else { return }
-        guard let indexPath = shoes.firstIndex(of: shoe) else { return }
+        let shoes = dataService.shoes
         var shoeQuantity = Cart.instance.cart[index.row].quantity
         shoeQuantity = Int(sender.value)
         shoeQuantityLabel.text = String(shoeQuantity)
-        print(shoes)
-        print(shoeQuantity)
         if shoeQuantity == 0 {
-            print(shoes)
+            shoes[index.row].isFavorited = false
+            shoes[index.row].isInCart = false
             Cart.instance.removeShoe(shoe: shoe)
             tableViewDelegate?.updateTableView()
-            print(DataService.instance.shoes[indexPath].isFavorited)
-            shoes[indexPath].isFavorited = false
             heartDelegate?.updateHeart()
-            print(DataService.instance.shoes[indexPath].isFavorited)
         }
     }
     

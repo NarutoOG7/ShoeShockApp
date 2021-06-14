@@ -19,33 +19,35 @@ class ShoeCell: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     
     var shoe: Shoe?
-    var shoes = DataService.instance.shoes
+    let dataService = DataService.instance
     var index = IndexPath()
     var delegate: ShoeCellDelegate?
+    var cartCell = CartCell()
+    var cartVC = CartVC()
     
 
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
+        let shoes = dataService.shoes
+
         shoes[index.row].isFavorited.toggle()
-        delegate?.didTapHeart(button: heartButton, shoe: shoe)
         shoes[index.row].isInCart.toggle()
+        delegate?.didTapHeart(button: heartButton, shoe: shoe)
         updateView(shoe: shoe)
-        print(shoes)
     }
     
     
     
     func updateView(shoe: Shoe) {
+        let shoes = dataService.shoes
+        
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
-        print(shoes)
+        
         let imageName = shoes[index.row].isFavorited ? "heart.fill" : "heart"
-        
-        
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
-        print("\(shoes[0].isFavorited) called in updateView in ShoeCell")
     }
 }
 

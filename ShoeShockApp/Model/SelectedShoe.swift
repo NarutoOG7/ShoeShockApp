@@ -8,12 +8,21 @@
 import Foundation
 
 
-struct SelectedShoe: Equatable {
+class SelectedShoe: Equatable {
+    static func == (lhs: SelectedShoe, rhs: SelectedShoe) -> Bool {
+        return lhs.shoe.name == rhs.shoe.name
+    }
+   
     var shoe: Shoe
     var quantity = 0
     var totalCost = 0.0
     
-    mutating func calculateTotal() {
+    init(shoe: Shoe, quantity: Int) {
+        self.shoe = shoe
+        self.quantity = quantity
+    }
+    
+    func calculateTotal() {
         totalCost = shoe.price * Double(quantity)
     }
 }

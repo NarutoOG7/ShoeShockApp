@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DataService {
+class DataService {
     
     static var instance = DataService()
     
-    var shoes: [Shoe] = [
+    let shoes: [Shoe] = [
         Shoe(image: "BBShoe01", name: "NIKE Air Max 1", price: 110.00, quantity: 1, details: "Soft", key: "1", isFavorited: false, isInCart: false),
         Shoe(image: "BBShoe02", name: "NIKE Jumpman", price: 100.00, quantity: 1, details: "Jump up your game", key: "2", isFavorited: false, isInCart: false),
         Shoe(image: "BBShoe03", name: "NIKE Air Jordan Retro", price: 1500.00, quantity: 1, details: "Classic", key: "3", isFavorited: false, isInCart: false),
