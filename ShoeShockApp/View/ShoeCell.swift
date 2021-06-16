@@ -29,7 +29,7 @@ class ShoeCell: UICollectionViewCell {
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        var shoes = dataService.shoes
+        var shoes = dataService.bballShoes
 
         shoes[index.row].isFavorited.toggle()
         shoes[index.row].isInCart.toggle()
@@ -40,7 +40,7 @@ class ShoeCell: UICollectionViewCell {
     
     
     func updateView(shoe: Shoe) {
-        let shoes = dataService.shoes
+        let shoes = dataService.bballShoes
         
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name

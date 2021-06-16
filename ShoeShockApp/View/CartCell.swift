@@ -53,7 +53,7 @@ class CartCell: UITableViewCell {
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         guard let shoe = shoe else { return }
-        let shoes = dataService.shoes
+        let shoes = dataService.bballShoes
         var shoeQuantity = Cart.instance.cart[index.row].quantity
         shoeQuantity = Int(sender.value)
         shoeQuantityLabel.text = String(shoeQuantity)

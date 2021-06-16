@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C9292F342665BA500009C026 /* SelectedShoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F332665BA500009C026 /* SelectedShoe.swift */; };
 		C9292F3B266B1B510009C026 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F3A266B1B510009C026 /* Cart.swift */; };
+		C98503302678283C00501B14 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C985032F2678283C00501B14 /* Category.swift */; };
+		C985033326783B9400501B14 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C985033226783B9400501B14 /* SectionHeaderView.swift */; };
 		C9C7B016265C4D6C00ED8A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7B015265C4D6C00ED8A67 /* AppDelegate.swift */; };
 		C9C7B018265C4D6C00ED8A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7B017265C4D6C00ED8A67 /* SceneDelegate.swift */; };
 		C9C7B01A265C4D6C00ED8A67 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7B019265C4D6C00ED8A67 /* HomeVC.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		C9292F332665BA500009C026 /* SelectedShoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedShoe.swift; sourceTree = "<group>"; };
 		C9292F3A266B1B510009C026 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		C985032F2678283C00501B14 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C985033226783B9400501B14 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		C9C7B012265C4D6C00ED8A67 /* ShoeShockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeShockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C7B015265C4D6C00ED8A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9C7B017265C4D6C00ED8A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			children = (
 				C9C7B033265C612100ED8A67 /* ShoeCell.swift */,
 				C9C7B03D265C652400ED8A67 /* CartCell.swift */,
+				C985033226783B9400501B14 /* SectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 				C9C7B02E265C605B00ED8A67 /* Shoe.swift */,
 				C9292F332665BA500009C026 /* SelectedShoe.swift */,
 				C9292F3A266B1B510009C026 /* Cart.swift */,
+				C985032F2678283C00501B14 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,7 +219,9 @@
 				C9C7B01A265C4D6C00ED8A67 /* HomeVC.swift in Sources */,
 				C9292F3B266B1B510009C026 /* Cart.swift in Sources */,
 				C9292F342665BA500009C026 /* SelectedShoe.swift in Sources */,
+				C98503302678283C00501B14 /* Category.swift in Sources */,
 				C9C7B016265C4D6C00ED8A67 /* AppDelegate.swift in Sources */,
+				C985033326783B9400501B14 /* SectionHeaderView.swift in Sources */,
 				C9C7B018265C4D6C00ED8A67 /* SceneDelegate.swift in Sources */,
 				C9C7B046265C6A3700ED8A67 /* DataService.swift in Sources */,
 			);

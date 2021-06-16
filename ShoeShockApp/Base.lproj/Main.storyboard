@@ -18,17 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="108-iP-LPx">
-                                <rect key="frame" x="0.0" y="138" width="414" height="564"/>
+                                <rect key="frame" x="60" y="138" width="354" height="564"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3xD-sc-xyq">
                                     <size key="itemSize" width="263" height="343"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShoeCell" id="QqC-Kn-TRM" customClass="ShoeCell" customModule="ShoeShockApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="110.5" width="263" height="343"/>
+                                        <rect key="frame" x="50" y="110.5" width="263" height="343"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PR8-Z6-1w9">
                                             <rect key="frame" x="0.0" y="0.0" width="263" height="343"/>
@@ -92,12 +92,16 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="mTs-AA-mG1" customClass="SectionHeaderView" customModule="ShoeShockApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="564"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="108-iP-LPx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sz9-E0-n8s"/>
+                            <constraint firstItem="108-iP-LPx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Sz9-E0-n8s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="108-iP-LPx" secondAttribute="bottom" constant="160" id="i62-L5-kwG"/>
                             <constraint firstItem="108-iP-LPx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m4K-ve-as6"/>
                             <constraint firstItem="108-iP-LPx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="zCO-eg-u91"/>
@@ -118,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-96"/>
+            <point key="canvasLocation" x="673.91304347826087" y="-96.428571428571431"/>
         </scene>
         <!--DetailsVC-->
         <scene sceneID="IZ9-wz-Hhz">

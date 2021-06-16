@@ -13,7 +13,9 @@ class HomeVC: UIViewController {
     
     var selectedShoe: Shoe?
     var cart = Cart()
-    var shoes = DataService.instance.shoes
+    var shoes = DataService.instance.bballShoes
+    
+    private(set) public var products = [Shoe]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +44,32 @@ class HomeVC: UIViewController {
         }
     }
     
+    func initShoes(category: Category) {
+        products = DataService.instance.getShoes(forCategoryTitle: category.title)
+        navigationItem.title = category.title
+    }
+
+    //MARK: - Section Buttons
+    
+    @IBAction func soccerButtonPressed(_ sender: UIButton) {
+        
+    }
+    @IBAction func bballButtonPressed(_ sender: UIButton) {
+    }
+    @IBAction func beachButtonPressed(_ sender: UIButton) {
+    }
+    
 }
+
 
 
 //MARK: - CollectionView DataSource and Delegate
 
-extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return DataService.instance.getCategories().count
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shoes.count
@@ -69,6 +91,19 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeaderView {
+            for i in DataService.instance.getCategories() {
+                var label = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+                label.text = i.title
+                sectionHeader.addSubview(label)
+                return sectionHeader
+            }
+        }
+        return UICollectionReusableView()
+    }
+
+
 }
 
 
