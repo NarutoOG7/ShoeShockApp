@@ -18,16 +18,28 @@ struct Cart {
     
     mutating func addShoe(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        cart.append(selectedShoe)
+        if cart.contains(selectedShoe) {
+            guard let index = cart.firstIndex(of: selectedShoe) else { return }
+            cart[index].shoe.quantity += 1
+        } else {
+            cart.append(selectedShoe)
+        }
     }
     
     mutating func removeShoe(shoe: Shoe) {
-        var selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         guard let index = cart.firstIndex(of: selectedShoe) else { return }
-        if cart[index].quantity > 1 {
-            selectedShoe.quantity -= 1
-        } else {
             cart.remove(at: index)
+    }
+    
+    func getTotal() -> Double {
+        var price = 0.0
+        for shoe in cart {
+            print("shoe price, should never change: \(shoe.shoe.price)")
+            print(shoe.shoe.quantity)
+            let shoePrice = shoe.shoe.price * Double(shoe.shoe.quantity)
+            price += shoePrice
         }
+        return price
     }
 }

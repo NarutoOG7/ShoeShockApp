@@ -51,9 +51,4 @@ class ShoeCell: UICollectionViewCell {
     }
 }
 
-extension ShoeCell: CartCellHeartDelegate {
-    func updateHeart() {
-        self.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-    }   
-}
 

@@ -10,15 +10,24 @@ import UIKit
 class CartVC: UIViewController {
 
     @IBOutlet weak var cartTableView: UITableView!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateTotalCost()        
         cartTableView.dataSource = self
         cartTableView.delegate = self
+        
     }
     
     @IBAction func purchasePressed(_ sender: UIButton) {
         // New VC or create an alert?
+    }
+    
+    func updateTotalCost() {
+        let cost = Cart.instance.getTotal()
+        totalPriceLabel.text = String(cost)
     }
     
 
@@ -34,8 +43,7 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
         let shoe = Cart.instance.cart[indexPath.row].shoe
         cell.shoe = shoe
         cell.index = indexPath
-        cell.tableViewDelegate = self
-        cell.heartDelegate = self
+        cell.updateTableViewDelegate = self
         cell.updateView(shoe: shoe)
         return cell
     }
@@ -49,14 +57,12 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
 
 
 extension CartVC: CartCellTableViewDelegate {
+    func updateTotalCost(withCost: Double) {
+        totalPriceLabel.text = String(withCost)
+    }
+    
     func updateTableView() {
         cartTableView.reloadData()
     }
 }
 
-extension CartVC: CartCellHeartDelegate {
-    func updateHeart() {
-    }
-    
-    
-}

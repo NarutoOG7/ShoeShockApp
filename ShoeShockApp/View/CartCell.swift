@@ -9,9 +9,7 @@ import UIKit
 
 protocol CartCellTableViewDelegate {
     func updateTableView()
-}
-protocol CartCellHeartDelegate {
-    func updateHeart()
+    func updateTotalCost(withCost: Double)
 }
 
 class CartCell: UITableViewCell {
@@ -22,16 +20,13 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var shoeQuantityLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
-    var shoe: Shoe?
-    
     var dataService = DataService.instance
-    
-//    var shoes = DataService.instance.shoes
+    var cart = Cart.instance
+    var shoe: Shoe?
     var selectedShoe: SelectedShoe?
     var index = IndexPath()
-    var cart = Cart.instance.cart
-    var tableViewDelegate: CartCellTableViewDelegate?
-    var heartDelegate: CartCellHeartDelegate?
+    var updateTableViewDelegate: CartCellTableViewDelegate?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,18 +47,25 @@ class CartCell: UITableViewCell {
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
-        guard let shoe = shoe else { return }
         let shoes = dataService.bballShoes
-        var shoeQuantity = Cart.instance.cart[index.row].quantity
+        let shoe = shoes[index.row]
+        var shoeQuantity = cart.cart[index.row].quantity
         shoeQuantity = Int(sender.value)
         shoeQuantityLabel.text = String(shoeQuantity)
+        
+        let cartShoes = cart.cart
+        cartShoes[index.row].shoe.quantity = shoeQuantity
+
         if shoeQuantity == 0 {
             shoes[index.row].isFavorited = false
             shoes[index.row].isInCart = false
-            Cart.instance.removeShoe(shoe: shoe)
-            tableViewDelegate?.updateTableView()
-            heartDelegate?.updateHeart()
+            cart.removeShoe(shoe: shoe)
+            updateTableViewDelegate?.updateTableView()
         }
+        
+        let cost = cart.getTotal()
+        updateTableViewDelegate?.updateTotalCost(withCost: cost)
+        
     }
     
     

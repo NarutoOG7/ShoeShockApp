@@ -15,7 +15,7 @@ class SelectedShoe: Equatable {
    
     var shoe: Shoe
     var quantity = 0
-    var totalCost = 0.0
+    var totalCost: Double = 0.0
     
     init(shoe: Shoe, quantity: Int) {
         self.shoe = shoe
