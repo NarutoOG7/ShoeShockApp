@@ -9,9 +9,7 @@ import UIKit
 
 protocol CartCellTableViewDelegate {
     func updateTableView()
-}
-protocol CartCellHeartDelegate {
-    func updateHeart()
+    func updateTotalCost()
 }
 
 class CartCell: UITableViewCell {
@@ -23,16 +21,12 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var stepper: UIStepper!
     
     var shoe: Shoe?
-    
     var dataService = DataService.instance
-    
-//    var shoes = DataService.instance.shoes
+    var cartService = Cart.instance
     var selectedShoe: SelectedShoe?
-    var index = IndexPath()
     var cart = Cart.instance.cart
     var tableViewDelegate: CartCellTableViewDelegate?
-    var heartDelegate: CartCellHeartDelegate?
-    
+      
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -53,17 +47,19 @@ class CartCell: UITableViewCell {
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         guard let shoe = shoe else { return }
-        let shoes = dataService.shoes
-        var shoeQuantity = Cart.instance.cart[index.row].quantity
-        shoeQuantity = Int(sender.value)
-        shoeQuantityLabel.text = String(shoeQuantity)
+        let shoeQuantity = Int(stepper.value)
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: shoeQuantity)
+        let cartShoes = cartService.cart
+        guard let index = cartShoes.firstIndex(of: selectedShoe) else { return }
         if shoeQuantity == 0 {
-            shoes[index.row].isFavorited = false
-            shoes[index.row].isInCart = false
-            Cart.instance.removeShoe(shoe: shoe)
+            cartShoes[index].shoe.isFavorited = false
+            cartShoes[index].shoe.isInCart = false
+            cartService.removeShoe(shoe: shoe)
             tableViewDelegate?.updateTableView()
-            heartDelegate?.updateHeart()
         }
+        cartShoes[index].shoe.quantity = shoeQuantity
+        shoeQuantityLabel.text = String(shoeQuantity)
+        tableViewDelegate?.updateTotalCost()
     }
     
     

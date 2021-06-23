@@ -25,7 +25,6 @@ class DetailsVC: UIViewController {
         shoePriceLabel.text = "$\(shoe.price)"
         shoeDetailsTextView.text = shoe.details
         
-        
     }
     
 

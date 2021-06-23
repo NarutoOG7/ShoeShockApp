@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Cart {
+class Cart {
     static var instance = Cart()
     var cart = [SelectedShoe]()
     
@@ -16,18 +16,27 @@ struct Cart {
         return cart
     }
     
-    mutating func addShoe(shoe: Shoe) {
+    func addShoe(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         cart.append(selectedShoe)
+        
     }
     
-    mutating func removeShoe(shoe: Shoe) {
-        var selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+    func removeShoe(shoe: Shoe) {
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         guard let index = cart.firstIndex(of: selectedShoe) else { return }
-        if cart[index].quantity > 1 {
-            selectedShoe.quantity -= 1
-        } else {
-            cart.remove(at: index)
-        }
+        cart.remove(at: index)
+        
     }
+    
+    func configureTotalCost() -> Double {
+        var totalCost: Double  = 0
+        for shoe in cart {
+            let cost = Double(shoe.shoe.quantity) * shoe.shoe.price
+            totalCost += cost
+        }
+        return totalCost
+    }
+    
+    
 }
