@@ -94,7 +94,7 @@ extension HomeVC: ShoeCellDelegate {
 
 extension HomeVC: SectionHeaderViewDelegate {
     func reloadCVDataWithSportIndex(_ index: Int) {
-        <#code#>
+        
     }
 }
 
