@@ -14,7 +14,7 @@ class HomeVC: UIViewController {
     var selectedShoe: Shoe?
     var cart = Cart()
     var shoes = DataService.instance.shoes
-    
+    var displayedType = 0
     var cartService = Cart.instance
     var dataService = DataService.instance
     
@@ -75,7 +75,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 
-//MARK: - ShoeCellDelegate
+//MARK: - Shoe Cell Delegate
 
 extension HomeVC: ShoeCellDelegate {
     
@@ -87,7 +87,14 @@ extension HomeVC: ShoeCellDelegate {
             Cart.instance.removeShoe(shoe: shoe)
         }
     }
-    
 }
 
+
+//MARK: - Section Header Delegate
+
+extension HomeVC: SectionHeaderViewDelegate {
+    func reloadCVDataWithSportIndex(_ index: Int) {
+        <#code#>
+    }
+}
 

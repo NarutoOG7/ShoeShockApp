@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="SectionHeaderView" customModule="ShoeShockApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="409" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -23,14 +23,23 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaI-uU-uQy">
                                     <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
                                     <state key="normal" title="Basketball"/>
+                                    <connections>
+                                        <action selector="tappedButton:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="6Hi-EX-sUL"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LL-dC-bgU">
                                     <rect key="frame" x="91" y="0.0" width="49" height="30"/>
                                     <state key="normal" title="Soccer"/>
+                                    <connections>
+                                        <action selector="tappedButton:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="zWU-Mn-1EF"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayt-fM-40d">
                                     <rect key="frame" x="160" y="0.0" width="57" height="30"/>
                                     <state key="normal" title="Comfort"/>
+                                    <connections>
+                                        <action selector="tappedButton:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="mmE-Ud-ysF"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

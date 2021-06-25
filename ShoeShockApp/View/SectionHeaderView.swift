@@ -7,11 +7,22 @@
 
 import UIKit
 
+protocol SectionHeaderViewDelegate {
+    func reloadCVDataWithSportIndex(_ index: Int)
+}
+
 class SectionHeaderView: UICollectionReusableView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var delegate: SectionHeaderViewDelegate?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        delegate = nil
     }
     
+    
+    @IBAction func tappedButton(_ sender: UIButton) {
+        delegate?.reloadCVDataWithSportIndex(sender.tag)
+    }
 }
