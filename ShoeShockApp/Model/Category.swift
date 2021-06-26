@@ -8,5 +8,5 @@
 import Foundation
 
 struct Category {
-    
+    private(set) public var title: String
 }

@@ -27,7 +27,6 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         shoeCollectionView.reloadData()
-        print(shoes[0].isFavorited)
     }
     
     @IBAction func cartPressed(_ sender: UIBarButtonItem) {
@@ -53,12 +52,14 @@ class HomeVC: UIViewController {
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shoes.count
+        
+        return dataService.shoes[displayedType].count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.shoeCell, for: indexPath) as! ShoeCell
-        let shoe = shoes[indexPath.row]
+        let shoe = shoes[displayedType][indexPath.row]
         cell.delegate = self
         cell.index = indexPath
         cell.shoe = shoe
@@ -68,7 +69,8 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         shoeCollectionView.deselectItem(at: indexPath, animated: false)
-        selectedShoe = shoes[indexPath.row]
+        let theShoes = shoes[displayedType]
+        selectedShoe = theShoes[indexPath.row]
         self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
     }
     

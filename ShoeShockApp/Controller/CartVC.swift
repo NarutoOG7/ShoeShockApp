@@ -14,6 +14,7 @@ class CartVC: UIViewController {
     
     var cartService = Cart.instance
     var dataService = DataService.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,8 +39,9 @@ class CartVC: UIViewController {
 }
 
 extension CartVC: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Cart.instance.cart.count
+        return cartService.cart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
