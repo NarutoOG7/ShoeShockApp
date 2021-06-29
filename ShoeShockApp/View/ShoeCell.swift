@@ -26,12 +26,11 @@ class ShoeCell: UICollectionViewCell {
     var cartCell = CartCell()
     var homeVC = HomeVC()
     var cartVC = CartVC()
-    
 
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let shoes = dataService.shoes[homeVC.displayedType]
+        let shoes = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)
         shoes[index.row].isFavorited.toggle()
         shoes[index.row].isInCart.toggle()
         delegate?.didTapHeart(button: heartButton, shoe: shoe)
@@ -39,11 +38,10 @@ class ShoeCell: UICollectionViewCell {
     }
     
     func updateView(shoe: Shoe) {
-        let shoes = dataService.shoes
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
-        let imageName = shoes[homeVC.displayedType][index.row].isFavorited ? "heart.fill" : "heart"
+        let imageName = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)[index.row].isFavorited ? "heart.fill" : "heart"
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
     

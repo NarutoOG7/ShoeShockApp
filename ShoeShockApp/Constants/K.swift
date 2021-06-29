@@ -14,8 +14,9 @@ struct K {
         static let toCartVC = "ToCartVC"
     }
     
-    struct CellIdentifiers {
+    struct Identifiers {
         static let shoeCell = "ShoeCell"
         static let cartCell = "CartCell"
+        static let sectionHeaderView = "SectionHeaderView"
     }
 }

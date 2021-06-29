@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     var displayedType = 0
     var cartService = Cart.instance
     var dataService = DataService.instance
+    var displayedCategory = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +53,13 @@ class HomeVC: UIViewController {
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return dataService.shoes[displayedType].count
-        
+        return dataService.getShoes(forCategoryTitle: displayedCategory).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.shoeCell, for: indexPath) as! ShoeCell
-        let shoe = shoes[displayedType][indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.shoeCell, for: indexPath) as! ShoeCell
+        //let shoe = shoes[displayedType][indexPath.row]
+        let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
         cell.delegate = self
         cell.index = indexPath
         cell.shoe = shoe
@@ -69,11 +69,23 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         shoeCollectionView.deselectItem(at: indexPath, animated: false)
-        let theShoes = shoes[displayedType]
+        let theShoes = dataService.getShoes(forCategoryTitle: displayedCategory)
         selectedShoe = theShoes[indexPath.row]
         self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionHeadersPinToVisibleBounds = true
+        }
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: K.Identifiers.sectionHeaderView, for: indexPath)
+        if let sectionHeaderView = supplementaryView as? SectionHeaderView {
+            sectionHeaderView.delegate = self
+            sectionHeaderView.updateUI()
+        }
+        return supplementaryView
+        
+    }
 }
 
 
@@ -95,8 +107,9 @@ extension HomeVC: ShoeCellDelegate {
 //MARK: - Section Header Delegate
 
 extension HomeVC: SectionHeaderViewDelegate {
-    func reloadCVDataWithSportIndex(_ index: Int) {
-        
+    func reloadCVDataWithSportIndex(_ title: String) {
+        displayedCategory = title
+        shoeCollectionView.reloadData()
     }
 }
 

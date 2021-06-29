@@ -45,7 +45,7 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.cartCell, for: indexPath) as! CartCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.cartCell, for: indexPath) as! CartCell
         let shoe = cartService.cart[indexPath.row].shoe
         cell.tableViewDelegate = self
         cell.shoe = shoe
