@@ -26,13 +26,15 @@ class ShoeCell: UICollectionViewCell {
     var cartCell = CartCell()
     var homeVC = HomeVC()
     var cartVC = CartVC()
+    var getShoes = DataService.instance.getShoes(forCategoryTitle: HomeVC().displayedCategory)
 
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let shoes = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)
-        shoes[index.row].isFavorited.toggle()
-        shoes[index.row].isInCart.toggle()
+//        let shoes = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)
+        getShoes[index.row].isFavorited.toggle()
+//        shoes[index.row].isFavorited.toggle()
+//        shoes[index.row].isInCart.toggle()
         delegate?.didTapHeart(button: heartButton, shoe: shoe)
         updateView(shoe: shoe)
     }
@@ -41,7 +43,8 @@ class ShoeCell: UICollectionViewCell {
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
-        let imageName = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)[index.row].isFavorited ? "heart.fill" : "heart"
+        let imageName = getShoes[index.row].isFavorited ? "heart.fill" : "heart"
+//            let imageName = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)[index.row].isFavorited ? "heart.fill" : "heart"
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
     

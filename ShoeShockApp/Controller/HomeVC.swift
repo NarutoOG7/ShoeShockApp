@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     
     var selectedShoe: Shoe?
     var cart = Cart()
-    var shoes = DataService.instance.shoes
+//    var shoes = DataService.instance.shoes
     var displayedType = 0
     var cartService = Cart.instance
     var dataService = DataService.instance
@@ -59,11 +59,11 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.shoeCell, for: indexPath) as! ShoeCell
         //let shoe = shoes[displayedType][indexPath.row]
-        let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
+        let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)
         cell.delegate = self
         cell.index = indexPath
-        cell.shoe = shoe
-        cell.updateView(shoe: shoe)
+        cell.shoe = shoe[indexPath.row]
+        cell.updateView(shoe: shoe[indexPath.row])
         return cell
     }
     
