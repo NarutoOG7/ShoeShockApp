@@ -39,25 +39,26 @@ class CartCell: UITableViewCell {
     }
     
     func updateView(shoe: Shoe) {
+        guard let selectedShoe = selectedShoe else { return }
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
-        shoeQuantityLabel.text = "\(shoe.quantity)"
+        shoeQuantityLabel.text = "\(selectedShoe.quantity)"
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         guard let shoe = shoe else { return }
         let shoeQuantity = Int(stepper.value)
-        let selectedShoe = SelectedShoe(shoe: shoe, quantity: shoeQuantity)
+        let selectedShoe = SelectedShoe(shoe: shoe)
         let cartShoes = cartService.cart
         guard let index = cartShoes.firstIndex(of: selectedShoe) else { return }
         if shoeQuantity == 0 {
-            cartShoes[index].shoe.isFavorited = false
-            cartShoes[index].shoe.isInCart = false
-            cartService.removeShoe(shoe: shoe)
+            cartShoes[index].isFavorited = false
+            cartShoes[index].isInCart = false
+            cartService.removeShoe(selectedShoe: selectedShoe)
             tableViewDelegate?.updateTableView()
         }
-        cartShoes[index].shoe.quantity = shoeQuantity
+        cartShoes[index].quantity = shoeQuantity
         shoeQuantityLabel.text = String(shoeQuantity)
         tableViewDelegate?.updateTotalCost()
     }

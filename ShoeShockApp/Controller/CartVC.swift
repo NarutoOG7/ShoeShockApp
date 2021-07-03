@@ -46,10 +46,11 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.cartCell, for: indexPath) as! CartCell
-        let shoe = cartService.cart[indexPath.row].shoe
+        let selectedShoe = cartService.cart[indexPath.row]
+        let shoe = selectedShoe.shoe
         cell.tableViewDelegate = self
         cell.shoe = shoe
-        cell.shoeQuantityLabel.text = String(shoe.quantity)
+        cell.shoeQuantityLabel.text = String(selectedShoe.quantity)
         cell.updateView(shoe: shoe)
         return cell
     }

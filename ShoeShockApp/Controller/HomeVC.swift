@@ -59,11 +59,11 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.shoeCell, for: indexPath) as! ShoeCell
         //let shoe = shoes[displayedType][indexPath.row]
-        let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)
-        cell.delegate = self
+        let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
+//        cell.delegate = self
         cell.index = indexPath
-        cell.shoe = shoe[indexPath.row]
-        cell.updateView(shoe: shoe[indexPath.row])
+        cell.shoe = shoe
+        cell.updateView(shoe: shoe)
         return cell
     }
     
@@ -91,17 +91,16 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 //MARK: - Shoe Cell Delegate
 
-extension HomeVC: ShoeCellDelegate {
-    
-    func didTapHeart(button: UIButton, shoe: Shoe) {
-        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        if !Cart.instance.cart.contains(selectedShoe) {
-            Cart.instance.addShoe(shoe: shoe)
-        } else {
-            Cart.instance.removeShoe(shoe: shoe)
-        }
-    }
-}
+//extension HomeVC: ShoeCellDelegate {
+//    
+//    func didTapHeart(button: UIButton, shoe: SelectedShoe) {
+//        if !shoe.isInCart {
+//            Cart.instance.addShoe(selectedShoe: shoe)
+//        } else {
+//            Cart.instance.removeShoe(selectedShoe: shoe)
+//        }
+//    }
+//}
 
 
 //MARK: - Section Header Delegate
