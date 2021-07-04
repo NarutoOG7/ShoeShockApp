@@ -49,6 +49,7 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
         let selectedShoe = cartService.cart[indexPath.row]
         let shoe = selectedShoe.shoe
         cell.tableViewDelegate = self
+        cell.selectedShoe = selectedShoe
         cell.shoe = shoe
         cell.shoeQuantityLabel.text = String(selectedShoe.quantity)
         cell.updateView(shoe: shoe)

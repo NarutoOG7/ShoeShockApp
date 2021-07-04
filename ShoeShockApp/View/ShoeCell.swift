@@ -19,6 +19,7 @@ class ShoeCell: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     
     var shoe: Shoe?
+    var selectedShoe: SelectedShoe?
     let dataService = DataService.instance
     var cartService = Cart.instance
     var index = IndexPath()
@@ -31,24 +32,17 @@ class ShoeCell: UICollectionViewCell {
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let selectedShoe = SelectedShoe(shoe: shoe)
-        print(selectedShoe.isFavorited)
+        guard let selectedShoe = selectedShoe else { return }
+        dataService.addShoeToFavorite(selectedShoe: selectedShoe)
         selectedShoe.isFavorited.toggle()
-        print(selectedShoe.isInCart)
-        
 //        let shoes = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)
  //       getShoes[index.row].isFavorited.toggle()
 //        shoe.isFavorited.toggle()
-        
 //        shoes[index.row].isFavorited.toggle()
 //        shoes[index.row].isInCart.toggle()
-//        delegate?.didTapHeart(button: heartButton, shoe: shoe)
-        if !selectedShoe.isInCart {
-            cartService.addShoe(shoe: shoe)
-        } else {
-            cartService.removeShoe(selectedShoe: selectedShoe)
-        }
+        delegate?.didTapHeart(button: heartButton, shoe: selectedShoe)
         updateView(shoe: shoe)
+        
         selectedShoe.isInCart.toggle()
     }
     
@@ -56,10 +50,12 @@ class ShoeCell: UICollectionViewCell {
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
-        let selectedShoe = SelectedShoe(shoe: shoe)
-        let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
+        
+        guard let selectedShoe = dataService.getFavoriteShoe(shoe: shoe) else { return }
+        
+            let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
+            self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
 //            let imageName = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)[index.row].isFavorited ? "heart.fill" : "heart"
-        self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
     
 }

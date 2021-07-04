@@ -16,8 +16,7 @@ class Cart {
         return cart
     }
     
-    func addShoe(shoe: Shoe) {
-        let selectedShoe = SelectedShoe(shoe: shoe)
+    func addShoe(selectedShoe: SelectedShoe) {
         cart.append(selectedShoe)
         
     }
