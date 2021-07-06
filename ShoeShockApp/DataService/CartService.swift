@@ -8,8 +8,8 @@
 import Foundation
 
 
-class Cart {
-    static var instance = Cart()
+class CartService {
+    static var instance = CartService()
     var cart = [SelectedShoe]()
     
     func getCartShoes() -> [SelectedShoe] {
@@ -19,7 +19,6 @@ class Cart {
     func addShoe(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         cart.append(selectedShoe)
-        
     }
     
     func removeShoe(shoe: Shoe) {
@@ -30,7 +29,7 @@ class Cart {
     }
     
     func configureTotalCost() -> Double {
-        var totalCost: Double  = 0
+        var totalCost: Double = 0
         for shoe in cart {
             let cost = Double(shoe.shoe.quantity) * shoe.shoe.price
             totalCost += cost

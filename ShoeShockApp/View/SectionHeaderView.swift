@@ -19,7 +19,7 @@ class SectionHeaderView: UICollectionReusableView {
     
     
     @IBOutlet weak var soccerButton: UIButton!
-    @IBOutlet weak var comfortButton: UIButton!
+    @IBOutlet weak var comfortButton: UIButton! 
     var delegate: SectionHeaderViewDelegate?
     
     override func prepareForReuse() {

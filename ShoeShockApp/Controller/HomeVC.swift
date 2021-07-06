@@ -12,10 +12,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var shoeCollectionView: UICollectionView!
     
     var selectedShoe: Shoe?
-    var cart = Cart()
+    var cart = CartService()
 //    var shoes = DataService.instance.shoes
     var displayedType = 0
-    var cartService = Cart.instance
+    var cartService = CartService.instance
     var dataService = DataService.instance
     var displayedCategory = ""
     
@@ -95,10 +95,10 @@ extension HomeVC: ShoeCellDelegate {
     
     func didTapHeart(button: UIButton, shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        if !Cart.instance.cart.contains(selectedShoe) {
-            Cart.instance.addShoe(shoe: shoe)
+        if !shoe.isInCart {
+            CartService.instance.addShoe(shoe: shoe)
         } else {
-            Cart.instance.removeShoe(shoe: shoe)
+            CartService.instance.removeShoe(shoe: shoe)
         }
     }
 }

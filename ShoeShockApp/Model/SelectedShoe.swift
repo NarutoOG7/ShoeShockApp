@@ -8,7 +8,7 @@
 import Foundation
 
 
-class SelectedShoe: Equatable {
+struct SelectedShoe: Equatable {
     static func == (lhs: SelectedShoe, rhs: SelectedShoe) -> Bool {
         return lhs.shoe.name == rhs.shoe.name
     }
