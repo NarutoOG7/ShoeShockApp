@@ -8,20 +8,22 @@
 import Foundation
 
 
-class Cart {
-    static var instance = Cart()
+class CartService {
+    static var instance = CartService()
     var cart = [SelectedShoe]()
     
     func getCartShoes() -> [SelectedShoe] {
         return cart
     }
     
-    func addShoe(selectedShoe: SelectedShoe) {
+    func addShoe(shoe: Shoe) {
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         cart.append(selectedShoe)
         
     }
     
-    func removeShoe(selectedShoe: SelectedShoe) {
+    func removeShoe(shoe: Shoe) {
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         guard let index = cart.firstIndex(of: selectedShoe) else { return }
         cart.remove(at: index)
         

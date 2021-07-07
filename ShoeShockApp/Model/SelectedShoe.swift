@@ -14,12 +14,13 @@ class SelectedShoe: Equatable {
     }
    
     var shoe: Shoe
-    var quantity: Int = 1
+    var quantity: Int
     var isFavorited: Bool = false
     var isInCart: Bool = false
     
-    init(shoe: Shoe) {
+    init(shoe: Shoe, quantity: Int) {
         self.shoe = shoe
+        self.quantity = quantity
     }
 
 }

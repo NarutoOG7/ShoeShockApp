@@ -11,11 +11,10 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var shoeCollectionView: UICollectionView!
     
-    var selectedShoe: Shoe?
-    var cart = Cart()
+    var shoe: Shoe?
+    var cart = CartService()
 //    var shoes = DataService.instance.shoes
-    var displayedType = 0
-    var cartService = Cart.instance
+    var cartService = CartService.instance
     var dataService = DataService.instance
     var displayedCategory = ""
     
@@ -38,7 +37,7 @@ class HomeVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.toDetailsVC {
             let detailsVC = segue.destination as! DetailsVC
-            detailsVC.shoe = selectedShoe
+            detailsVC.shoe = shoe
         } else if segue.identifier == K.Segues.toCartVC {
             let cartVC = segue.destination as! CartVC
             
@@ -58,12 +57,10 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.shoeCell, for: indexPath) as! ShoeCell
-        //let shoe = shoes[displayedType][indexPath.row]
         let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
         cell.delegate = self
         cell.index = indexPath
         cell.shoe = shoe
-        cell.selectedShoe = SelectedShoe(shoe: shoe)
         cell.updateView(shoe: shoe)
         return cell
     }
@@ -71,7 +68,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         shoeCollectionView.deselectItem(at: indexPath, animated: false)
         let theShoes = dataService.getShoes(forCategoryTitle: displayedCategory)
-        selectedShoe = theShoes[indexPath.row]
+        shoe = theShoes[indexPath.row]
         self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
     }
     
@@ -94,12 +91,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension HomeVC: ShoeCellDelegate {
     
-    func didTapHeart(button: UIButton, shoe: SelectedShoe) {
-        if !shoe.isInCart {
-            Cart.instance.addShoe(selectedShoe: shoe)
+    func didTapHeart(button: UIButton, selectedShoe: SelectedShoe) {
+        if let index = cartService.cart.firstIndex(of: selectedShoe) {
+            cartService.removeShoe(shoe: selectedShoe.shoe)
         } else {
-            Cart.instance.removeShoe(selectedShoe: shoe)
+            cartService.addShoe(shoe: selectedShoe.shoe)
         }
+
     }
 }
 

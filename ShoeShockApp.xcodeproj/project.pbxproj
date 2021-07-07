@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9292F342665BA500009C026 /* SelectedShoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F332665BA500009C026 /* SelectedShoe.swift */; };
-		C9292F3B266B1B510009C026 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F3A266B1B510009C026 /* Cart.swift */; };
+		C9292F3B266B1B510009C026 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F3A266B1B510009C026 /* CartService.swift */; };
 		C98A90682684CE6A00FCE0BE /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98A90662684CE6A00FCE0BE /* SectionHeaderView.swift */; };
 		C98A906F268699A000FCE0BE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98A906E268699A000FCE0BE /* Category.swift */; };
 		C9C7B016265C4D6C00ED8A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7B015265C4D6C00ED8A67 /* AppDelegate.swift */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		C9292F332665BA500009C026 /* SelectedShoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedShoe.swift; sourceTree = "<group>"; };
-		C9292F3A266B1B510009C026 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		C9292F3A266B1B510009C026 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		C98A90662684CE6A00FCE0BE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		C98A906E268699A000FCE0BE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C9C7B012265C4D6C00ED8A67 /* ShoeShockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeShockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +118,6 @@
 			children = (
 				C9C7B02E265C605B00ED8A67 /* Shoe.swift */,
 				C9292F332665BA500009C026 /* SelectedShoe.swift */,
-				C9292F3A266B1B510009C026 /* Cart.swift */,
 				C98A906E268699A000FCE0BE /* Category.swift */,
 			);
 			path = Model;
@@ -128,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				C9C7B045265C6A3700ED8A67 /* DataService.swift */,
+				C9292F3A266B1B510009C026 /* CartService.swift */,
 			);
 			path = DataService;
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 				C9C7B03E265C652400ED8A67 /* CartCell.swift in Sources */,
 				C9C7B02F265C605B00ED8A67 /* Shoe.swift in Sources */,
 				C9C7B01A265C4D6C00ED8A67 /* HomeVC.swift in Sources */,
-				C9292F3B266B1B510009C026 /* Cart.swift in Sources */,
+				C9292F3B266B1B510009C026 /* CartService.swift in Sources */,
 				C9292F342665BA500009C026 /* SelectedShoe.swift in Sources */,
 				C9C7B016265C4D6C00ED8A67 /* AppDelegate.swift in Sources */,
 				C9C7B018265C4D6C00ED8A67 /* SceneDelegate.swift in Sources */,

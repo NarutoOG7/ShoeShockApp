@@ -36,11 +36,6 @@ class SectionHeaderView: UICollectionReusableView {
         comfortButton.layer.cornerRadius = 20
     }
     
-//    @IBAction func tappedButton(_ sender: UIButton) {
-//        sender.isSelected.toggle()
-//        delegate?.reloadCVDataWithSportIndex(sender.tag)
-//    }
-    
     func updateColor() {
         guard let buttonOne = bballButton, let buttonTwo = soccerButton, let buttonThree = comfortButton else { return }
         let button = [buttonOne, buttonTwo, buttonThree]
@@ -49,25 +44,13 @@ class SectionHeaderView: UICollectionReusableView {
         } else {
             button[tag].backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         }
+        button[tag].isSelected.toggle()
     }
     
     @IBAction func allTapped(_ sender: UIButton) {
         updateColor()
-        sender.isSelected.toggle()
+//        sender.isSelected.toggle()
         delegate?.reloadCVDataWithSportIndex(sender.titleLabel?.text ?? "Basketball")
     }
     
-//    @IBAction func bballTapped(_ sender: UIButton) {
-//        updateColor(ofButton: sender)
-//        sender.isSelected.toggle()
-//
-//    }
-//    @IBAction func soccerTapped(_ sender: UIButton) {
-//        updateColor(ofButton: sender)
-//        sender.isSelected.toggle()
-//    }
-//    @IBAction func comfortTapped(_ sender: UIButton) {
-//        updateColor(ofButton: sender)
-//        sender.isSelected.toggle()
-//    }
 }

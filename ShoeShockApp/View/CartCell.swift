@@ -22,9 +22,9 @@ class CartCell: UITableViewCell {
     
     var shoe: Shoe?
     var dataService = DataService.instance
-    var cartService = Cart.instance
+    var cartService = CartService.instance
     var selectedShoe: SelectedShoe?
-    var cart = Cart.instance.cart
+    var cart = CartService.instance.cart
     var tableViewDelegate: CartCellTableViewDelegate?
       
     override func awakeFromNib() {
@@ -49,13 +49,13 @@ class CartCell: UITableViewCell {
     @IBAction func stepperPressed(_ sender: UIStepper) {
         guard let shoe = shoe else { return }
         let shoeQuantity = Int(stepper.value)
-        let selectedShoe = SelectedShoe(shoe: shoe)
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         let cartShoes = cartService.cart
         guard let index = cartShoes.firstIndex(of: selectedShoe) else { return }
         if shoeQuantity == 0 {
             cartShoes[index].isFavorited = false
             cartShoes[index].isInCart = false
-            cartService.removeShoe(selectedShoe: selectedShoe)
+            cartService.removeShoe(shoe: shoe)
             tableViewDelegate?.updateTableView()
         }
         cartShoes[index].quantity = shoeQuantity

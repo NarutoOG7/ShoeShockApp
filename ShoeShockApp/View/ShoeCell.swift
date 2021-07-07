@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ShoeCellDelegate {
-    func didTapHeart(button: UIButton, shoe: SelectedShoe)
+    func didTapHeart(button: UIButton, selectedShoe: SelectedShoe)
 }
 
 class ShoeCell: UICollectionViewCell {
@@ -21,41 +21,34 @@ class ShoeCell: UICollectionViewCell {
     var shoe: Shoe?
     var selectedShoe: SelectedShoe?
     let dataService = DataService.instance
-    var cartService = Cart.instance
+    var cartService = CartService.instance
     var index = IndexPath()
     var delegate: ShoeCellDelegate?
-    var cartCell = CartCell()
-    var homeVC = HomeVC()
-    var cartVC = CartVC()
-    var getShoes = DataService.instance.getShoes(forCategoryTitle: HomeVC().displayedCategory)
-
+    
     
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        guard let selectedShoe = selectedShoe else { return }
-        dataService.addShoeToFavorite(selectedShoe: selectedShoe)
-        selectedShoe.isFavorited.toggle()
-//        let shoes = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)
- //       getShoes[index.row].isFavorited.toggle()
-//        shoe.isFavorited.toggle()
-//        shoes[index.row].isFavorited.toggle()
-//        shoes[index.row].isInCart.toggle()
-        delegate?.didTapHeart(button: heartButton, shoe: selectedShoe)
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        let getShoes = dataService.getShoes(forCategoryTitle: HomeVC().displayedCategory)
+        if cartService.cart.contains(selectedShoe) {
+            guard let newIndex = cartService.cart.firstIndex(of: selectedShoe) else { return }
+            
+        }
+        delegate?.didTapHeart(button: heartButton, selectedShoe: selectedShoe)
         updateView(shoe: shoe)
-        
-        selectedShoe.isInCart.toggle()
+    }
+    
+    func updateHeartView(selectedShoe: SelectedShoe) {
+
     }
     
     func updateView(shoe: Shoe) {
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = "$\(shoe.price)"
-        
-        guard let selectedShoe = dataService.getFavoriteShoe(shoe: shoe) else { return }
-        
-            let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
-            self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
-//            let imageName = dataService.getShoes(forCategoryTitle: homeVC.displayedCategory)[index.row].isFavorited ? "heart.fill" : "heart"
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
+        self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
     
 }

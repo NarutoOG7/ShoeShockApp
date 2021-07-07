@@ -59,7 +59,7 @@ class DataService {
         return comfortShoes
     }
     func getFavoriteShoe(shoe: Shoe) -> SelectedShoe? {
-        let selectedShoe = SelectedShoe(shoe: shoe)
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         guard let index = favoritedShoes.firstIndex(of: selectedShoe) else { return nil }
         return favoritedShoes[index]
     }

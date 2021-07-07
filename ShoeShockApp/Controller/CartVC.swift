@@ -12,7 +12,7 @@ class CartVC: UIViewController {
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
-    var cartService = Cart.instance
+    var cartService = CartService.instance
     var dataService = DataService.instance
     
     override func viewDidLoad() {
