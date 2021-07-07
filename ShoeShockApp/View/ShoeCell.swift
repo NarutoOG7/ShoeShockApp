@@ -34,6 +34,7 @@ class ShoeCell: UICollectionViewCell {
             guard let newIndex = cartService.cart.firstIndex(of: selectedShoe) else { return }
             
         }
+        selectedShoe.isFavorited.toggle()
         delegate?.didTapHeart(button: heartButton, selectedShoe: selectedShoe)
         updateView(shoe: shoe)
     }
@@ -43,10 +44,10 @@ class ShoeCell: UICollectionViewCell {
     }
     
     func updateView(shoe: Shoe) {
-        shoeImage.image = UIImage(named: shoe.image)
-        shoeNameLabel.text = shoe.name
-        shoePriceLabel.text = "$\(shoe.price)"
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        shoeImage.image = UIImage(named: selectedShoe.shoe.image)
+        shoeNameLabel.text = selectedShoe.shoe.name
+        shoePriceLabel.text = "$\(selectedShoe.shoe.price)"
         let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
