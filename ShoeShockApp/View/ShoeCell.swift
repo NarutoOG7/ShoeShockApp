@@ -29,13 +29,13 @@ class ShoeCell: UICollectionViewCell {
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        let getShoes = dataService.getShoes(forCategoryTitle: HomeVC().displayedCategory)
-        if cartService.cart.contains(selectedShoe) {
-            guard let newIndex = cartService.cart.firstIndex(of: selectedShoe) else { return }
-            
-        }
-        selectedShoe.isFavorited.toggle()
+//        let getShoes = dataService.getShoes(forCategoryTitle: HomeVC().displayedCategory)
+//        if cartService.cart.contains(selectedShoe) {
+//            guard let newIndex = cartService.cart.firstIndex(of: selectedShoe) else { return }
+//            
+//        }
         delegate?.didTapHeart(button: heartButton, selectedShoe: selectedShoe)
+        selectedShoe.isFavorited.toggle()
         updateView(shoe: shoe)
     }
     
@@ -45,11 +45,13 @@ class ShoeCell: UICollectionViewCell {
     
     func updateView(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        shoeImage.image = UIImage(named: selectedShoe.shoe.image)
-        shoeNameLabel.text = selectedShoe.shoe.name
-        shoePriceLabel.text = "$\(selectedShoe.shoe.price)"
-        let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
-        self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
+            shoeImage.image = UIImage(named: shoe.image)
+            shoeNameLabel.text = shoe.name
+            shoePriceLabel.text = "$\(shoe.price)"
+        guard let index = dataService.favoritedShoes.firstIndex(of: selectedShoe) else { return }
+        let imageName = dataService.favoritedShoes[index].isFavorited ? "heart.fill" : "heart"
+            self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
+        
     }
     
 }

@@ -80,6 +80,10 @@ class DataService {
     func addShoeToFavorite(selectedShoe: SelectedShoe) {
         favoritedShoes.append(selectedShoe)
     }
+    func removeShoeFromFavorites(selectedShoe: SelectedShoe) {
+        guard let index = favoritedShoes.firstIndex(of: selectedShoe) else { return }
+        favoritedShoes.remove(at: index)
+    }
     
  
 }

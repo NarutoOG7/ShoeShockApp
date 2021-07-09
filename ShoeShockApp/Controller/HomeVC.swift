@@ -40,7 +40,7 @@ class HomeVC: UIViewController {
             detailsVC.shoe = shoe
         } else if segue.identifier == K.Segues.toCartVC {
             let cartVC = segue.destination as! CartVC
-            
+            print(dataService.favoritedShoes)
         }
     }
     
@@ -92,12 +92,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension HomeVC: ShoeCellDelegate {
     
     func didTapHeart(button: UIButton, selectedShoe: SelectedShoe) {
-        if let index = cartService.cart.firstIndex(of: selectedShoe) {
+        if cartService.cart.contains(selectedShoe) /*.firstIndex(of: selectedShoe) != nil */ {
             cartService.removeShoe(shoe: selectedShoe.shoe)
+            dataService.removeShoeFromFavorites(selectedShoe: selectedShoe)
         } else {
             cartService.addShoe(shoe: selectedShoe.shoe)
+            dataService.addShoeToFavorite(selectedShoe: selectedShoe)
         }
-
+        
     }
 }
 
