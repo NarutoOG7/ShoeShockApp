@@ -58,9 +58,11 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.shoeCell, for: indexPath) as! ShoeCell
         let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         cell.delegate = self
         cell.index = indexPath
         cell.shoe = shoe
+        cell.selectedShoe = selectedShoe
         cell.updateView(shoe: shoe)
         return cell
     }

@@ -29,30 +29,42 @@ class ShoeCell: UICollectionViewCell {
     @IBAction func heartButtonPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-//        let getShoes = dataService.getShoes(forCategoryTitle: HomeVC().displayedCategory)
-//        if cartService.cart.contains(selectedShoe) {
-//            guard let newIndex = cartService.cart.firstIndex(of: selectedShoe) else { return }
-//            
-//        }
+        //        let getShoes = dataService.getShoes(forCategoryTitle: HomeVC().displayedCategory)
+        //        if cartService.cart.contains(selectedShoe) {
+        //            guard let newIndex = cartService.cart.firstIndex(of: selectedShoe) else { return }
+        //
+        //        }
         delegate?.didTapHeart(button: heartButton, selectedShoe: selectedShoe)
         selectedShoe.isFavorited.toggle()
         updateView(shoe: shoe)
     }
     
     func updateHeartView(selectedShoe: SelectedShoe) {
-
-    }
-    
-    func updateView(shoe: Shoe) {
-        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-            shoeImage.image = UIImage(named: shoe.image)
-            shoeNameLabel.text = shoe.name
-            shoePriceLabel.text = "$\(shoe.price)"
-        guard let index = dataService.favoritedShoes.firstIndex(of: selectedShoe) else { return }
-        let imageName = dataService.favoritedShoes[index].isFavorited ? "heart.fill" : "heart"
-            self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
         
     }
+    
+        func updateView(shoe: Shoe) {
+            let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+                shoeImage.image = UIImage(named: shoe.image)
+                shoeNameLabel.text = shoe.name
+                shoePriceLabel.text = "$\(shoe.price)"
+            guard let index = dataService.favoritedShoes.firstIndex(of: selectedShoe) else { return }
+            let imageName = dataService.favoritedShoes[index].isFavorited ? "heart.fill" : "heart"
+                self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
+    
+        }
+    
+//    func updateView(shoe: Shoe?, selectedShoe: SelectedShoe?) {
+//        guard let shoe = shoe else { return }
+//        shoeImage.image = UIImage(named: shoe.image)
+//        shoeNameLabel.text = shoe.name
+//        shoePriceLabel.text = "$\(shoe.price)"
+//        if let selectedShoe = selectedShoe {
+//            let imageName = selectedShoe.isFavorited ? "heart.fill" : "heart"
+//            self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
+//        }
+//    }
+    
     
 }
 
