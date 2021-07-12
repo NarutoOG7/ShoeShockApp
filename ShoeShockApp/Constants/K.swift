@@ -15,7 +15,8 @@ struct K {
     }
     
     struct Identifiers {
-        static let shoeCell = "ShoeCell"
+        static let homeShoeCell = "ShoeCell"
+        static let favoriteShoeCell = "FavoriteShoeCell"
         static let cartCell = "CartCell"
         static let sectionHeaderView = "SectionHeaderView"
     }

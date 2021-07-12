@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     
     var shoe: Shoe?
     var cart = CartService()
-//    var shoes = DataService.instance.shoes
+    //    var shoes = DataService.instance.shoes
     var cartService = CartService.instance
     var dataService = DataService.instance
     var displayedCategory = ""
@@ -29,11 +29,6 @@ class HomeVC: UIViewController {
         shoeCollectionView.reloadData()
     }
     
-    @IBAction func cartPressed(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: K.Segues.toCartVC, sender: self)
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.toDetailsVC {
             let detailsVC = segue.destination as! DetailsVC
@@ -44,6 +39,7 @@ class HomeVC: UIViewController {
         }
     }
     
+
 }
 
 
@@ -56,7 +52,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.shoeCell, for: indexPath) as! ShoeCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.homeShoeCell, for: indexPath) as! HomeShoeCell
         let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
         cell.delegate = self
         cell.index = indexPath
@@ -71,6 +67,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         shoe = theShoes[indexPath.row]
         self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -92,12 +89,19 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension HomeVC: ShoeCellDelegate {
     
     func didTapHeart(button: UIButton, selectedShoe: SelectedShoe) {
-        if cartService.cart.contains(selectedShoe) /*.firstIndex(of: selectedShoe) != nil */ {
-            cartService.removeShoe(shoe: selectedShoe.shoe)
-            dataService.removeShoeFromFavorites(selectedShoe: selectedShoe)
+        if HomeShoeCell().heartButton == button {
+            if dataService.favoritedShoes.firstIndex(of: selectedShoe) != nil {
+                dataService.removeShoeFromFavorites(selectedShoe: selectedShoe)
+            } else {
+                dataService.addShoeToFavorite(selectedShoe: selectedShoe)
+            }
         } else {
-            cartService.addShoe(shoe: selectedShoe.shoe)
-            dataService.addShoeToFavorite(selectedShoe: selectedShoe)
+            if cartService.cart.firstIndex(of: selectedShoe) != nil {
+                cartService.removeShoe(shoe: selectedShoe.shoe)
+                
+            } else {
+                cartService.addShoe(shoe: selectedShoe.shoe)
+            }
         }
         
     }

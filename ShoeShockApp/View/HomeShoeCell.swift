@@ -11,13 +11,14 @@ protocol ShoeCellDelegate {
     func didTapHeart(button: UIButton, selectedShoe: SelectedShoe)
 }
 
-class ShoeCell: UICollectionViewCell {
+class HomeShoeCell: UICollectionViewCell {
     
     @IBOutlet weak var shoeImage: UIImageView!
     @IBOutlet weak var shoeNameLabel: UILabel!
     @IBOutlet weak var shoePriceLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
     
+    @IBOutlet weak var addButton: UIButton!
     var shoe: Shoe?
     var selectedShoe: SelectedShoe?
     let dataService = DataService.instance
@@ -39,6 +40,11 @@ class ShoeCell: UICollectionViewCell {
         updateView(shoe: shoe)
     }
     
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        guard let shoe = shoe else { return }
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        delegate?.didTapHeart(button: addButton, selectedShoe: selectedShoe)
+    }
     func updateHeartView(selectedShoe: SelectedShoe) {
 
     }

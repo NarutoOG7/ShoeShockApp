@@ -18,10 +18,14 @@ class CartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateTotalPriceLabel()
+        
         cartTableView.dataSource = self
         cartTableView.delegate = self
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cartTableView.reloadData()
+        updateTotalPriceLabel()
     }
     
     @IBAction func purchasePressed(_ sender: UIButton) {

@@ -44,9 +44,17 @@ class DataService {
         Shoe(image: "SCShoe06", name: "ADIDAS Melatonin", price: 80.00, details: "Large"),
         Shoe(image: "SCShoe07", name: "NIKE Heaven-Sent-Soles", price: 80.00, details: "Large")
     ]
-
+    
     var favoritedShoes = [SelectedShoe]()
     
+    
+    func addShoeToFavorite(selectedShoe: SelectedShoe) {
+        favoritedShoes.append(selectedShoe)
+    }
+    func removeShoeFromFavorites(selectedShoe: SelectedShoe) {
+        guard let index = favoritedShoes.firstIndex(of: selectedShoe) else { return }
+        favoritedShoes.remove(at: index)
+    }
     
     
     func getBBallShoes() -> [Shoe] {
@@ -58,10 +66,8 @@ class DataService {
     func getComfortShoes() -> [Shoe] {
         return comfortShoes
     }
-    func getFavoriteShoe(shoe: Shoe) -> SelectedShoe? {
-        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        guard let index = favoritedShoes.firstIndex(of: selectedShoe) else { return nil }
-        return favoritedShoes[index]
+    func getFavoriteShoe() -> [SelectedShoe] {
+        return favoritedShoes
     }
     
     func getShoes(forCategoryTitle title: String) -> [Shoe] {
@@ -77,13 +83,6 @@ class DataService {
         }
     }
     
-    func addShoeToFavorite(selectedShoe: SelectedShoe) {
-        favoritedShoes.append(selectedShoe)
-    }
-    func removeShoeFromFavorites(selectedShoe: SelectedShoe) {
-        guard let index = favoritedShoes.firstIndex(of: selectedShoe) else { return }
-        favoritedShoes.remove(at: index)
-    }
     
- 
+    
 }
