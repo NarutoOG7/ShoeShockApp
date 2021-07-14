@@ -44,7 +44,7 @@ class ShoeCell: UICollectionViewCell {
         
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
-        shoePriceLabel.text = "$\(shoe.price)"
+        shoePriceLabel.text = String(format: "$%.2f", shoe.price)
         
         let imageName = shoes[index.row].isFavorited ? "heart.fill" : "heart"
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
