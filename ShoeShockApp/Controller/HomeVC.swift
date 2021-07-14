@@ -39,7 +39,7 @@ class HomeVC: UIViewController {
         }
     }
     
-
+    
 }
 
 
@@ -54,8 +54,6 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.homeShoeCell, for: indexPath) as! HomeShoeCell
         let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
-        cell.delegate = self
-        cell.index = indexPath
         cell.shoe = shoe
         cell.updateView(shoe: shoe)
         return cell
@@ -82,31 +80,6 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
         
     }
 }
-
-
-//MARK: - Shoe Cell Delegate
-
-extension HomeVC: ShoeCellDelegate {
-    
-    func didTapHeart(button: UIButton, selectedShoe: SelectedShoe) {
-        if HomeShoeCell().heartButton == button {
-            if dataService.favoritedShoes.firstIndex(of: selectedShoe) != nil {
-                dataService.removeShoeFromFavorites(selectedShoe: selectedShoe)
-            } else {
-                dataService.addShoeToFavorite(selectedShoe: selectedShoe)
-            }
-        } else {
-            if cartService.cart.firstIndex(of: selectedShoe) != nil {
-                cartService.removeShoe(shoe: selectedShoe.shoe)
-                
-            } else {
-                cartService.addShoe(shoe: selectedShoe.shoe)
-            }
-        }
-        
-    }
-}
-
 
 //MARK: - Section Header Delegate
 

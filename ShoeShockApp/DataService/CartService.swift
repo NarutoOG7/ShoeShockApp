@@ -18,7 +18,12 @@ class CartService {
     
     func addShoe(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        cart.append(selectedShoe)
+        if cart.contains(selectedShoe) {
+            guard let index = cart.firstIndex(of: selectedShoe) else { return }
+            cart[index].quantity += 1
+        } else {
+            cart.append(selectedShoe)
+        }
         
     }
     
