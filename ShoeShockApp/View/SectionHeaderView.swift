@@ -36,20 +36,22 @@ class SectionHeaderView: UICollectionReusableView {
         comfortButton.layer.cornerRadius = 20
     }
     
-    func updateColor() {
+    func manageButtons(senderButton: UIButton) {
         guard let buttonOne = bballButton, let buttonTwo = soccerButton, let buttonThree = comfortButton else { return }
-        let button = [buttonOne, buttonTwo, buttonThree]
-        if button[tag].isSelected {
-            button[tag].backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        } else {
-            button[tag].backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        let buttons = [buttonOne, buttonTwo, buttonThree]
+        for button in buttons {
+            if button == senderButton {
+                button.isSelected = true
+                button.backgroundColor = #colorLiteral(red: 1, green: 0.7536035951, blue: 0.6726864442, alpha: 1)
+            } else {
+                button.isSelected = false
+                button.backgroundColor = #colorLiteral(red: 0.926725911, green: 0.9644670051, blue: 0.8870801265, alpha: 1)
+            }
         }
-        button[tag].isSelected.toggle()
     }
     
     @IBAction func allTapped(_ sender: UIButton) {
-        updateColor()
-//        sender.isSelected.toggle()
+        manageButtons(senderButton: sender)
         delegate?.reloadCVDataWithSportIndex(sender.titleLabel?.text ?? "Basketball")
     }
     

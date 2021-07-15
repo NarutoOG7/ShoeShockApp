@@ -33,7 +33,7 @@ class HomeShoeCell: UICollectionViewCell {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
             shoeImage.image = UIImage(named: shoe.image)
             shoeNameLabel.text = shoe.name
-            shoePriceLabel.text = "$\(shoe.price)"
+        shoePriceLabel.text = String(format: "$%.2f", shoe.price)
         let imageName = dataService.favoritedShoes.contains(selectedShoe) ? "heart.fill" : "heart"
             self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
         

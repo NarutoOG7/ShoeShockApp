@@ -34,7 +34,7 @@ class CartVC: UIViewController {
     
     func updateTotalPriceLabel() {
         let totalCost = cartService.configureTotalCost()
-        totalPriceLabel.text = String(totalCost)
+        totalPriceLabel.text = String(format: "$%.2f", totalCost)
         if totalCost == 0.0 {
             totalPriceLabel.text = ""
         }

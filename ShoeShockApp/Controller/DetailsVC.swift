@@ -32,7 +32,7 @@ class DetailsVC: UIViewController {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         shoeNameLabel.text = shoe.name
         shoeImage.image = UIImage(named: shoe.image)
-        shoePriceLabel.text = "$\(shoe.price)"
+        shoePriceLabel.text = String(format: "$%.2f", shoe.price)
         shoeDetailsTextView.text = shoe.details
         let favTitle = dataService.favoritedShoes.firstIndex(of: selectedShoe) != nil ? "FAVORITED" : "ADD TO FAVORITES"
         self.addToFavorites.setTitle(favTitle, for: .normal)

@@ -42,7 +42,7 @@ class CartCell: UITableViewCell {
         guard let selectedShoe = selectedShoe else { return }
         shoeImage.image = UIImage(named: shoe.image)
         shoeNameLabel.text = shoe.name
-        shoePriceLabel.text = "$\(shoe.price)"
+        shoePriceLabel.text = String(format: "$%.2f", shoe.price)
         shoeQuantityLabel.text = "\(selectedShoe.quantity)"
     }
     
@@ -52,12 +52,7 @@ class CartCell: UITableViewCell {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
         let cartShoes = cartService.cart
         guard let index = cartShoes.firstIndex(of: selectedShoe) else { return }
-        guard let favIndex = dataService.favoritedShoes.firstIndex(of: selectedShoe) else { return }
         if shoeQuantity == 0 {
-            dataService.favoritedShoes[favIndex].isFavorited = false
-            dataService.removeShoeFromFavorites(selectedShoe: selectedShoe)
-            cartShoes[index].isFavorited = false
-            cartShoes[index].isInCart = false
             cartService.removeShoe(shoe: shoe)
             tableViewDelegate?.updateTableView()
         }

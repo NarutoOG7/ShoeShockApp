@@ -13,7 +13,6 @@ class HomeVC: UIViewController {
     
     var shoe: Shoe?
     var cart = CartService()
-    //    var shoes = DataService.instance.shoes
     var cartService = CartService.instance
     var dataService = DataService.instance
     var displayedCategory = ""
@@ -45,7 +44,7 @@ class HomeVC: UIViewController {
 
 //MARK: - CollectionView DataSource and Delegate
 
-extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataService.getShoes(forCategoryTitle: displayedCategory).count
@@ -77,7 +76,6 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate {
             sectionHeaderView.updateUI()
         }
         return supplementaryView
-        
     }
 }
 
