@@ -85,7 +85,7 @@
                                                         <constraint firstAttribute="width" constant="21" id="GkA-fH-cMk"/>
                                                         <constraint firstAttribute="height" constant="22" id="KbB-0C-1vu"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="1" green="0.37209479439999998" blue="0.37823875089999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="heart" catalog="system"/>
                                                     <connections>
                                                         <action selector="heartButtonPressed:" destination="QqC-Kn-TRM" eventType="touchUpInside" id="awd-ql-zQP"/>
@@ -118,59 +118,98 @@
                                             <rect key="frame" x="0.0" y="0.0" width="46" height="437"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="fk7-jM-i20">
-                                                    <rect key="frame" x="-227" y="200.5" width="500" height="36"/>
+                                                    <rect key="frame" x="-233" y="198.5" width="512" height="40"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-Vh-ZmO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="36"/>
-                                                            <color key="backgroundColor" red="0.92672591100000001" green="0.96446700510000005" blue="0.88708012650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-Pu-dX0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="40"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-Vh-ZmO">
+                                                                    <rect key="frame" x="2" y="2" width="100" height="36"/>
+                                                                    <color key="backgroundColor" red="0.96852558850000003" green="0.9686878324" blue="0.96850281949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="36" id="5pO-An-dk2"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="vO4-jg-xCe"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                    <state key="normal" title="Basketball">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <state key="selected">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="allTapped:" destination="Cac-wU-cFn" eventType="touchUpInside" id="RXV-8o-mk8"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.96852558850000003" green="0.9686878324" blue="0.96850281949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="vO4-jg-xCe"/>
+                                                                <constraint firstItem="2jN-Vh-ZmO" firstAttribute="centerX" secondItem="E3h-Pu-dX0" secondAttribute="centerX" id="gbh-ry-bzl"/>
+                                                                <constraint firstAttribute="width" constant="104" id="gnX-ml-UKG"/>
+                                                                <constraint firstItem="2jN-Vh-ZmO" firstAttribute="centerY" secondItem="E3h-Pu-dX0" secondAttribute="centerY" id="idV-hy-sbc"/>
+                                                                <constraint firstAttribute="height" constant="40" id="mI3-oW-8JD"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                            <state key="normal" title="Basketball">
-                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </state>
-                                                            <state key="selected">
-                                                                <color key="titleColor" red="1" green="0.25286362499999998" blue="0.26771233179999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="allTapped:" destination="Cac-wU-cFn" eventType="touchUpInside" id="RXV-8o-mk8"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROC-78-xui">
-                                                            <rect key="frame" x="200" y="0.0" width="100" height="36"/>
-                                                            <color key="backgroundColor" red="0.92672591102954449" green="0.96446700507614214" blue="0.88708012654844914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFf-Ic-DYc">
+                                                            <rect key="frame" x="204" y="0.0" width="104" height="40"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROC-78-xui">
+                                                                    <rect key="frame" x="2" y="2" width="100" height="36"/>
+                                                                    <color key="backgroundColor" red="0.96852558850000003" green="0.9686878324" blue="0.96850281949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="36" id="T8M-Bz-ijl"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="WBx-cv-f18"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                    <state key="normal" title="Soccer">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <state key="selected">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="allTapped:" destination="Cac-wU-cFn" eventType="touchUpInside" id="g22-d8-Day"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.96852558850000003" green="0.9686878324" blue="0.96850281949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="WBx-cv-f18"/>
+                                                                <constraint firstAttribute="height" constant="40" id="5Wy-yF-Vnb"/>
+                                                                <constraint firstAttribute="width" constant="104" id="B4P-0F-K2I"/>
+                                                                <constraint firstItem="ROC-78-xui" firstAttribute="centerX" secondItem="zFf-Ic-DYc" secondAttribute="centerX" id="BXi-Zb-pME"/>
+                                                                <constraint firstItem="ROC-78-xui" firstAttribute="centerY" secondItem="zFf-Ic-DYc" secondAttribute="centerY" id="pCd-iw-2No"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                            <state key="normal" title="Soccer">
-                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </state>
-                                                            <state key="selected">
-                                                                <color key="titleColor" red="1" green="0.25286362499999998" blue="0.26771233179999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="allTapped:" destination="Cac-wU-cFn" eventType="touchUpInside" id="g22-d8-Day"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClS-SZ-0lL">
-                                                            <rect key="frame" x="400" y="0.0" width="100" height="36"/>
-                                                            <color key="backgroundColor" red="1" green="0.7536035951014215" blue="0.67268644419292056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhF-4c-ZHm">
+                                                            <rect key="frame" x="408" y="0.0" width="104" height="40"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClS-SZ-0lL">
+                                                                    <rect key="frame" x="2" y="2" width="100" height="36"/>
+                                                                    <color key="backgroundColor" red="0.96852558850000003" green="0.9686878324" blue="0.96850281949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="36" id="2Yh-Yc-P8g"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="fMN-p5-ojw"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                                    <state key="normal" title="Comfort">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <state key="selected">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="allTapped:" destination="Cac-wU-cFn" eventType="touchUpInside" id="kOH-js-2b7"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.13600401183252714" green="0.13735058620710661" blue="0.13735058620710661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="fMN-p5-ojw"/>
+                                                                <constraint firstItem="ClS-SZ-0lL" firstAttribute="centerX" secondItem="RhF-4c-ZHm" secondAttribute="centerX" id="VgN-QZ-w75"/>
+                                                                <constraint firstAttribute="height" constant="40" id="km3-Ya-5Na"/>
+                                                                <constraint firstAttribute="width" constant="104" id="r2T-wy-ZRh"/>
+                                                                <constraint firstItem="ClS-SZ-0lL" firstAttribute="centerY" secondItem="RhF-4c-ZHm" secondAttribute="centerY" id="xPU-wa-Lu8"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                            <state key="normal" title="Comfort">
-                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </state>
-                                                            <state key="selected">
-                                                                <color key="titleColor" red="1" green="0.25286362499999998" blue="0.26771233179999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="allTapped:" destination="Cac-wU-cFn" eventType="touchUpInside" id="kOH-js-2b7"/>
-                                                            </connections>
-                                                        </button>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -188,8 +227,11 @@
                                         <constraint firstAttribute="trailing" secondItem="szi-qL-n2D" secondAttribute="trailing" id="XS6-ti-kZs"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="bballBackground" destination="E3h-Pu-dX0" id="gK1-zs-ugQ"/>
                                         <outlet property="bballButton" destination="2jN-Vh-ZmO" id="Ry6-I1-M0o"/>
+                                        <outlet property="comfortBackground" destination="RhF-4c-ZHm" id="y80-c6-1WT"/>
                                         <outlet property="comfortButton" destination="ClS-SZ-0lL" id="1X7-ny-zgu"/>
+                                        <outlet property="soccerBackground" destination="zFf-Ic-DYc" id="i9L-bs-HuF"/>
                                         <outlet property="soccerButton" destination="ROC-78-xui" id="1Wl-M4-lvB"/>
                                         <outlet property="stackView" destination="fk7-jM-i20" id="cCT-7Y-FVu"/>
                                         <outlet property="view" destination="szi-qL-n2D" id="My9-hq-S6a"/>
@@ -249,6 +291,7 @@
                                                         <constraint firstAttribute="width" constant="21" id="RUe-Rw-zAO"/>
                                                         <constraint firstAttribute="height" constant="22" id="YYH-3W-eG5"/>
                                                     </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="heart.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="heartButtonTapped:" destination="Pa3-1M-Hg9" eventType="touchUpInside" id="Ksz-XX-EkZ"/>
@@ -312,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSA-UE-e1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="-940"/>
+            <point key="canvasLocation" x="1593" y="-948"/>
         </scene>
         <!--DetailsVC-->
         <scene sceneID="IZ9-wz-Hhz">
@@ -362,26 +405,28 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCT-Pb-rcp">
                                 <rect key="frame" x="35" y="787" width="344" height="40"/>
-                                <color key="backgroundColor" red="0.64531800987701737" green="0.99764038705583757" blue="0.4175964622628332" alpha="0.50361194349315064" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="344" id="Nns-Tu-AbP"/>
                                     <constraint firstAttribute="height" constant="40" id="s8A-rE-gKI"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.37209479439999998" blue="0.37823875089999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="ADD TO BAG"/>
+                                <state key="normal" title="ADD TO BAG">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="addToBagPressed:" destination="GKw-FL-iKw" eventType="touchUpInside" id="h8m-pV-4FZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-gf-LkZ">
                                 <rect key="frame" x="35" y="739" width="344" height="40"/>
-                                <color key="backgroundColor" red="0.64531800989999999" green="0.99764038710000003" blue="0.41759646230000003" alpha="0.50361194350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="344" id="bHm-p2-bnx"/>
                                     <constraint firstAttribute="height" constant="40" id="kbk-Hg-vgx"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.37209479439999998" blue="0.37823875089999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="ADD TO FAVORITES"/>
+                                <state key="normal" title="ADD TO FAVORITES">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="addToBagPressed:" destination="GKw-FL-iKw" eventType="touchUpInside" id="TFB-v4-n6Y"/>
                                     <action selector="addToFavoritesPressed:" destination="GKw-FL-iKw" eventType="touchUpInside" id="79W-bt-ywP"/>
@@ -390,6 +435,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P0M-Mw-kUG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstItem="aCT-Pb-rcp" firstAttribute="centerX" secondItem="7cu-oV-l42" secondAttribute="centerX" id="55l-G2-gm3"/>
                             <constraint firstItem="KSm-2o-lUk" firstAttribute="centerX" secondItem="7cu-oV-l42" secondAttribute="centerX" id="AFZ-cm-tCr"/>
@@ -405,7 +451,7 @@
                             <constraint firstItem="P0M-Mw-kUG" firstAttribute="bottom" secondItem="aCT-Pb-rcp" secondAttribute="bottom" constant="35" id="rgr-P3-Lxo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="a8s-0P-GAc"/>
+                    <navigationItem key="navigationItem" id="T0k-01-vnn"/>
                     <connections>
                         <outlet property="addToFavorites" destination="3eg-gf-LkZ" id="HzI-2o-3zx"/>
                         <outlet property="shoeDetailsTextView" destination="wTQ-yq-r44" id="fQ0-OY-5Z6"/>
@@ -500,7 +546,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAL-k2-WG5">
                                 <rect key="frame" x="14" y="756" width="386" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.37209479439999998" blue="0.37823875089999998" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hA4-ef-tWO"/>
                                 </constraints>
@@ -558,16 +604,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjx-EG-lzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457.9710144927537" y="-940.17857142857133"/>
+            <point key="canvasLocation" x="594" y="-948"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dj5-4o-7Rf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qqj-D3-WOi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pu1-Ev-UYB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrow.left" catalog="system" id="pu1-Ev-UYB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -576,7 +629,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oD-F6-Mps" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="-96"/>
+            <point key="canvasLocation" x="-230" y="-96"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eDa-KJ-RyM">
@@ -588,6 +641,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="XgK-XK-UCo"/>
@@ -604,6 +659,7 @@
         <segue reference="Q5m-BZ-1MN"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
@@ -614,6 +670,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -22,10 +22,9 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         updateView()
-        
     }
+    
     
     func updateView() {
         guard let shoe = shoe else { return }

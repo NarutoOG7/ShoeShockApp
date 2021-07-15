@@ -16,10 +16,13 @@ class SectionHeaderView: UICollectionReusableView {
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var bballButton: UIButton!
+    @IBOutlet weak var bballBackground: UIView!
     
     
     @IBOutlet weak var soccerButton: UIButton!
+    @IBOutlet weak var soccerBackground: UIView!
     @IBOutlet weak var comfortButton: UIButton!
+    @IBOutlet weak var comfortBackground: UIView!
     var delegate: SectionHeaderViewDelegate?
     
     override func prepareForReuse() {
@@ -32,20 +35,32 @@ class SectionHeaderView: UICollectionReusableView {
         stackView.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
         stackView.spacing = 30
         bballButton.layer.cornerRadius = 20
+        bballBackground.layer.cornerRadius = 20
         soccerButton.layer.cornerRadius = 20
+        soccerBackground.layer.cornerRadius = 20
         comfortButton.layer.cornerRadius = 20
+        comfortBackground.layer.cornerRadius = 20
     }
     
     func manageButtons(senderButton: UIButton) {
-        guard let buttonOne = bballButton, let buttonTwo = soccerButton, let buttonThree = comfortButton else { return }
-        let buttons = [buttonOne, buttonTwo, buttonThree]
-        for button in buttons {
+        guard
+            let bballButton = bballButton,
+            let soccerButton = soccerButton,
+            let comfortButton = comfortButton
+                else { return }
+        guard
+            let bballBackground = bballBackground,
+            let soccerBackground = soccerBackground,
+            let comfortBackground = comfortBackground
+                else { return }
+        let buttons = [bballButton: bballBackground, soccerButton: soccerBackground, comfortButton: comfortBackground]
+        for (button, background)in buttons {
             if button == senderButton {
                 button.isSelected = true
-                button.backgroundColor = #colorLiteral(red: 1, green: 0.7536035951, blue: 0.6726864442, alpha: 1)
+                background.backgroundColor = #colorLiteral(red: 0.1360040118, green: 0.1373505862, blue: 0.1373505862, alpha: 1)
             } else {
                 button.isSelected = false
-                button.backgroundColor = #colorLiteral(red: 0.926725911, green: 0.9644670051, blue: 0.8870801265, alpha: 1)
+                background.backgroundColor = #colorLiteral(red: 0.9685255885, green: 0.9686878324, blue: 0.9685028195, alpha: 1)
             }
         }
     }
