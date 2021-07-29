@@ -42,16 +42,16 @@ class DataService {
         Shoe(image: "SCShoe04-Tilt", brand: "NIKE", name: "Hokage's Slippers", price: 80.00, details: "Large", color: "Orange"),
         Shoe(image: "SCShoe05-Tilt", brand: "NIKE", name: "Itachi's Boots", price: 80.00, details: "Large", color: "Yellow"),
         Shoe(image: "SCShoe06-Tilt", brand: "NIKE", name: "Melatonin", price: 80.00, details: "Large", color: "Orange"),
-        Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Heaven-Sent-Soles", price: 80.00, details: "Large", color: "Rainbow")
+        Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Heaven-Sent Soles", price: 80.00, details: "Large", color: "Rainbow")
     ]
     let moreShoes = [
-        Shoe(image: "SCShoe01-Tilt", brand: "ADIDAS", name: "Vigilanties", price: 80.00, details: "Large", color: "Red"),
-        Shoe(image: "SCShoe02-Tilt", brand: "ADIDAS", name: "Actual 2 HoneyBadger", price: 80.00, details: "Large", color: "GOld"),
-        Shoe(image: "SCShoe03-Tilt", brand: "ADIDAS", name: "FoxBoxx", price: 80.00, details: "Large", color: "Teal"),
-        Shoe(image: "SCShoe04-Tilt", brand: "NIKE", name: "Hokage's Slippers", price: 80.00, details: "Large", color: "Orange"),
-        Shoe(image: "SCShoe05-Tilt", brand: "NIKE", name: "Itachi's Boots", price: 80.00, details: "Large", color: "Yellow"),
-        Shoe(image: "SCShoe06-Tilt", brand: "NIKE", name: "Melatonin", price: 80.00, details: "Large", color: "Orange"),
-        Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Heaven-Sent-Soles", price: 80.00, details: "Large", color: "Rainbow")
+        Shoe(image: "SCShoe01", brand: "ADIDAS", name: "Vigilanties", price: 80.00, details: "Large", color: "Red"),
+        Shoe(image: "SCShoe02", brand: "ADIDAS", name: "Actual 2 HoneyBadger", price: 80.00, details: "Large", color: "GOld"),
+        Shoe(image: "SCShoe03", brand: "ADIDAS", name: "FoxBoxx", price: 80.00, details: "Large", color: "Teal"),
+        Shoe(image: "SCShoe04", brand: "NIKE", name: "Hokage's Slippers", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe05", brand: "NIKE", name: "Itachi's Boots", price: 80.00, details: "Large", color: "Yellow"),
+        Shoe(image: "SCShoe06", brand: "NIKE", name: "Melatonin", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe07", brand: "ADIDAS", name: "Heaven-Sent Soles", price: 80.00, details: "Large", color: "Rainbow")
     ]
     
     var favoritedShoes = [SelectedShoe]()

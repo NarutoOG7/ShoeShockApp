@@ -11,12 +11,18 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var mainShoeCollectionView: UICollectionView!
     @IBOutlet weak var moreShoesCollectionView: UICollectionView!
+    @IBOutlet weak var nikeButton: UIButton!
+    @IBOutlet weak var adidasButton: UIButton!
+    @IBOutlet weak var jordanButton: UIButton!
+    @IBOutlet weak var pumaButton: UIButton!
+    @IBOutlet weak var reebokButton: UIButton!
     
     var shoe: Shoe?
     var cart = CartService()
     var cartService = CartService.instance
     var dataService = DataService.instance
     var displayedCategory = ""
+    var displayedBrand = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,7 @@ class HomeVC: UIViewController {
         mainShoeCollectionView.delegate = self
         moreShoesCollectionView.dataSource = self
         moreShoesCollectionView.delegate = self
+        nikeButton.isSelected = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +46,33 @@ class HomeVC: UIViewController {
         } else if segue.identifier == K.Segues.toCartVC {
             let cartVC = segue.destination as! CartVC
         }
+    }
+    
+    func manageBrandButtons(senderButton: UIButton) {
+        guard
+            let nikeButton = nikeButton,
+            let adidasButton = adidasButton,
+            let jordanButton = jordanButton,
+            let pumaButton = pumaButton,
+            let reebokButton = reebokButton
+        else { return }
+        
+        let brandButtons = [nikeButton, adidasButton, jordanButton, pumaButton, reebokButton]
+        for button in brandButtons {
+            if button == senderButton {
+                button.isSelected = true
+                button.titleLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            } else {
+                button.isSelected = false
+                button.titleLabel?.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+            }
+        }
+    }
+    
+    @IBAction func brandTapped(_ sender: UIButton) {
+        manageBrandButtons(senderButton: sender)
+        displayedBrand = sender.titleLabel?.text ?? "Nike"
+        mainShoeCollectionView.reloadData()
     }
     
     @IBAction func unwindFromDetailsVC(_ segue: UIStoryboardSegue) {

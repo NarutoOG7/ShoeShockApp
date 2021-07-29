@@ -12,17 +12,16 @@ protocol SectionHeaderViewDelegate {
     func reloadCVDataWithSportIndex(_ title: String)
 }
 class SectionHeaderView: UICollectionReusableView {
-    @IBOutlet weak var view: UIView!
     
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var bballButton: UIButton!
     @IBOutlet weak var bballBackground: UIView!
-    
-    
     @IBOutlet weak var soccerButton: UIButton!
     @IBOutlet weak var soccerBackground: UIView!
     @IBOutlet weak var comfortButton: UIButton!
     @IBOutlet weak var comfortBackground: UIView!
+    
     var delegate: SectionHeaderViewDelegate?
     
     override func prepareForReuse() {
@@ -54,7 +53,7 @@ class SectionHeaderView: UICollectionReusableView {
             let comfortBackground = comfortBackground
                 else { return }
         let buttons = [bballButton: bballBackground, soccerButton: soccerBackground, comfortButton: comfortBackground]
-        for (button, background)in buttons {
+        for (button, background) in buttons {
             if button == senderButton {
                 button.isSelected = true
                 background.backgroundColor = #colorLiteral(red: 0.1360040118, green: 0.1373505862, blue: 0.1373505862, alpha: 1)
