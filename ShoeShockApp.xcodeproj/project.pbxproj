@@ -26,6 +26,7 @@
 		C9C7B046265C6A3700ED8A67 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7B045265C6A3700ED8A67 /* DataService.swift */; };
 		C9D3159A2697EA5400765DE9 /* FavoriteShoeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D315992697EA5400765DE9 /* FavoriteShoeCell.swift */; };
 		C9D3159E2697F08400765DE9 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3159D2697F08400765DE9 /* FavoritesVC.swift */; };
+		C9FF606626A4912B00EEF899 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF606526A4912B00EEF899 /* PurchaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C9C7B045265C6A3700ED8A67 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		C9D315992697EA5400765DE9 /* FavoriteShoeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteShoeCell.swift; sourceTree = "<group>"; };
 		C9D3159D2697F08400765DE9 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		C9FF606526A4912B00EEF899 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				C9C7B037265C631800ED8A67 /* DetailsVC.swift */,
 				C9C7B03A265C632700ED8A67 /* CartVC.swift */,
 				C9D3159D2697F08400765DE9 /* FavoritesVC.swift */,
+				C9FF606526A4912B00EEF899 /* PurchaseVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				C9292F3B266B1B510009C026 /* CartService.swift in Sources */,
 				C9292F342665BA500009C026 /* SelectedShoe.swift in Sources */,
 				C9C7B016265C4D6C00ED8A67 /* AppDelegate.swift in Sources */,
+				C9FF606626A4912B00EEF899 /* PurchaseVC.swift in Sources */,
 				C9C7B018265C4D6C00ED8A67 /* SceneDelegate.swift in Sources */,
 				C9C7B046265C6A3700ED8A67 /* DataService.swift in Sources */,
 				C98A906F268699A000FCE0BE /* Category.swift in Sources */,

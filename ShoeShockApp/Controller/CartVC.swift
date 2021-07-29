@@ -8,12 +8,13 @@
 import UIKit
 
 class CartVC: UIViewController {
-
+    
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     var cartService = CartService.instance
     var dataService = DataService.instance
+    var shoe: Shoe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +40,40 @@ class CartVC: UIViewController {
             totalPriceLabel.text = ""
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case K.Segues.toPurchase:
+            let purchaseVC = segue.destination as! PurchaseVC
+            purchaseVC.shoe = shoe
+        case K.Segues.toDetailsVC:
+            let detailsVC = segue.destination as! DetailsVC
+            detailsVC.shoe = shoe
+            detailsVC.previousVC = "Cart"
+        default:
+            return
+        }
 
+    }
+    
+    @IBAction func unwindFromDetailsVC(_ segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindFromPurchaseVC(_ sender: UIStoryboardSegue) {
+        
+    }
+    
 }
 
 extension CartVC: UITableViewDataSource, UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartService.cart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.cartCell, for: indexPath) as! CartCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifiers.cartCell, for: indexPath) as! CartCell
         let selectedShoe = cartService.cart[indexPath.row]
         let shoe = selectedShoe.shoe
         cell.tableViewDelegate = self
@@ -64,7 +88,12 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
         return 150
     }
     
- 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedShoe = cartService.cart[indexPath.row]
+        shoe = selectedShoe.shoe
+        self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
+    }
+    
 }
 
 

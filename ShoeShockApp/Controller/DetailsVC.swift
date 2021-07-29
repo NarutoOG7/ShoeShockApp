@@ -18,13 +18,13 @@ class DetailsVC: UIViewController {
     var shoe: Shoe?
     var dataService = DataService.instance
     let cartService = CartService.instance
+    var previousVC = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateView()
     }
-    
     
     func updateView() {
         guard let shoe = shoe else { return }
@@ -36,6 +36,7 @@ class DetailsVC: UIViewController {
         let favTitle = dataService.favoritedShoes.firstIndex(of: selectedShoe) != nil ? "FAVORITED" : "ADD TO FAVORITES"
         self.addToFavorites.setTitle(favTitle, for: .normal)
     }
+    
     
     @IBAction func addToFavoritesPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
@@ -50,8 +51,7 @@ class DetailsVC: UIViewController {
     
     @IBAction func addToBagPressed(_ sender: UIButton) {
         guard let shoe = shoe else { return }
-        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        cartService.addShoe(shoe: selectedShoe.shoe)
+        cartService.addShoe(shoe: shoe)
         updateView()
     }
     

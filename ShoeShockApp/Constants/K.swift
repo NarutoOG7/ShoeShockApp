@@ -12,12 +12,16 @@ struct K {
     struct Segues {
         static let toDetailsVC = "ToDetailsVC"
         static let toCartVC = "ToCartVC"
+        static let toPurchase = "toPurchase"
+        static let purchaseToHome = "purchaseToHome"
     }
     
-    struct Identifiers {
+    struct CellIdentifiers {
         static let homeShoeCell = "ShoeCell"
         static let favoriteShoeCell = "FavoriteShoeCell"
         static let cartCell = "CartCell"
+        static let purchaseCell = "purchaseCell"
         static let sectionHeaderView = "SectionHeaderView"
+        static let moreShoesCell = "moreShoesCell"
     }
 }

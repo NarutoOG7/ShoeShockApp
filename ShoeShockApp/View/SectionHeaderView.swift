@@ -60,7 +60,7 @@ class SectionHeaderView: UICollectionReusableView {
                 background.backgroundColor = #colorLiteral(red: 0.1360040118, green: 0.1373505862, blue: 0.1373505862, alpha: 1)
             } else {
                 button.isSelected = false
-                background.backgroundColor = #colorLiteral(red: 0.9685255885, green: 0.9686878324, blue: 0.9685028195, alpha: 1)
+                background.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             }
         }
     }

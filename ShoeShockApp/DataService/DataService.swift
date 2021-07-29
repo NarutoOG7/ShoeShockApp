@@ -18,31 +18,40 @@ class DataService {
     ]
     
     let bballShoes = [
-        Shoe(image: "BBShoe01", name: "NIKE Air Max 1", price: 110.00, details: "Soft"),
-        Shoe(image: "BBShoe02", name: "NIKE Jumpman", price: 100.00, details: "Jump up your game"),
-        Shoe(image: "BBShoe03", name: "NIKE Air Jordan Retro", price: 1500.00, details: "Classic"),
-        Shoe(image: "BBShoe04", name: "NIKE Ballers", price: 90.00, details: "Wanna be a baller?"),
-        Shoe(image: "BBShoe05", name: "NIKE Runners", price: 150.00, details: "Be light, be quick."),
-        Shoe(image: "BBShoe06", name: "NIKE Cloud", price: 120.00, details: "Float around, like Mike"),
-        Shoe(image: "BBShoe07", name: "NIKE MoonShoes", price: 1000.00, details: "Bounce Bounce")
+        Shoe(image: "BBShoe01-Tilt", brand: "NIKE", name: "Air Max 1", price: 110.00, details: "Soft", color: "White"),
+        Shoe(image: "BBShoe02-Tilt", brand: "NIKE", name: "Air Jordan Jumpman", price: 100.00, details: "Jump up your game", color: "Red"),
+        Shoe(image: "BBShoe03-Tilt", brand: "NIKE", name: "Air Jordan Retro", price: 1500.00, details: "Classic", color: "Red"),
+        Shoe(image: "BBShoe04-Tilt", brand: "NIKE", name: "Runners", price: 150.00, details: "Be light, be quick.", color: "White"),
+        Shoe(image: "BBShoe05-Tilt", brand: "NIKE", name: "Big Ballers", price: 90.00, details: "Wanna be a baller?", color: "Grey"),
+        Shoe(image: "BBShoe06-Tilt", brand: "NIKE", name: "Cloud Runners", price: 120.00, details: "Float around, like Mike", color: "Pink"),
+        Shoe(image: "BBShoe07-Tilt", brand: "NIKE", name: "MoonShoes", price: 1000.00, details: "Bounce Bounce", color: "Red")
     ]
     let soccerShoes = [
-        Shoe(image: "SCShoe01", name: "ADIDAS Sasquatch", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe02", name: "ADIDAS Marintoff", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe03", name: "ADIDAS BostonSauce", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe04", name: "ADIDAS FatherMarsh", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe05", name: "ADIDAS BaboonAmoon", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe06", name: "ADIDAS Clarance", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe07", name: "ADIDAS Sock-Tock-Sick", price: 80.00, details: "Large")
+        Shoe(image: "SCShoe01-Tilt", brand: "ADIDAS", name: "Sasquatch", price: 80.00, details: "Large", color: "Red"),
+        Shoe(image: "SCShoe02-Tilt", brand: "ADIDAS", name: "Marintoff", price: 80.00, details: "Large", color: "Gold"),
+        Shoe(image: "SCShoe03-Tilt", brand: "ADIDAS", name: "BostonSauce", price: 80.00, details: "Large", color: "Teal"),
+        Shoe(image: "SCShoe04-Tilt", brand: "NIKE", name: "FatherMarsh", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe05-Tilt", brand: "NIKE", name: "BaboonAmoon", price: 80.00, details: "Large", color: "Yellow"),
+        Shoe(image: "SCShoe06-Tilt", brand: "NIKE", name: "Clarance", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Sock-Tock-Sick", price: 80.00, details: "Large", color: "Rainbow")
     ]
     let comfortShoes = [
-        Shoe(image: "SCShoe01", name: "NIKE Vigilanties", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe02", name: "ADIDAS Actual 2 HoneyBadger", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe03", name: "ADIDAS FoxBoxx", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe04", name: "Hokage's Slippers", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe05", name: "Itachi's Boots", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe06", name: "ADIDAS Melatonin", price: 80.00, details: "Large"),
-        Shoe(image: "SCShoe07", name: "NIKE Heaven-Sent-Soles", price: 80.00, details: "Large")
+        Shoe(image: "SCShoe01-Tilt", brand: "ADIDAS", name: "Vigilanties", price: 80.00, details: "Large", color: "Red"),
+        Shoe(image: "SCShoe02-Tilt", brand: "ADIDAS", name: "Actual 2 HoneyBadger", price: 80.00, details: "Large", color: "Gold"),
+        Shoe(image: "SCShoe03-Tilt", brand: "ADIDAS", name: "FoxBoxx", price: 80.00, details: "Large", color: "Teal"),
+        Shoe(image: "SCShoe04-Tilt", brand: "NIKE", name: "Hokage's Slippers", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe05-Tilt", brand: "NIKE", name: "Itachi's Boots", price: 80.00, details: "Large", color: "Yellow"),
+        Shoe(image: "SCShoe06-Tilt", brand: "NIKE", name: "Melatonin", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Heaven-Sent-Soles", price: 80.00, details: "Large", color: "Rainbow")
+    ]
+    let moreShoes = [
+        Shoe(image: "SCShoe01-Tilt", brand: "ADIDAS", name: "Vigilanties", price: 80.00, details: "Large", color: "Red"),
+        Shoe(image: "SCShoe02-Tilt", brand: "ADIDAS", name: "Actual 2 HoneyBadger", price: 80.00, details: "Large", color: "GOld"),
+        Shoe(image: "SCShoe03-Tilt", brand: "ADIDAS", name: "FoxBoxx", price: 80.00, details: "Large", color: "Teal"),
+        Shoe(image: "SCShoe04-Tilt", brand: "NIKE", name: "Hokage's Slippers", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe05-Tilt", brand: "NIKE", name: "Itachi's Boots", price: 80.00, details: "Large", color: "Yellow"),
+        Shoe(image: "SCShoe06-Tilt", brand: "NIKE", name: "Melatonin", price: 80.00, details: "Large", color: "Orange"),
+        Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Heaven-Sent-Soles", price: 80.00, details: "Large", color: "Rainbow")
     ]
     
     var favoritedShoes = [SelectedShoe]()
@@ -65,6 +74,9 @@ class DataService {
     }
     func getComfortShoes() -> [Shoe] {
         return comfortShoes
+    }
+    func getMoreShoes() -> [Shoe] {
+        return moreShoes
     }
     func getFavoriteShoe() -> [SelectedShoe] {
         return favoritedShoes

@@ -29,8 +29,14 @@ class FavoritesVC: UIViewController {
         if segue.identifier == K.Segues.toDetailsVC {
             let detailsVC = segue.destination as! DetailsVC
             detailsVC.shoe = shoe
+            detailsVC.previousVC = "Fav"
         }
     }
+    
+    @IBAction func unwindFromDetailsVC(_ segue: UIStoryboardSegue) {
+        
+    }
+    
 }
 
 //MARK: - CollectionView DataSource
@@ -41,7 +47,7 @@ extension FavoritesVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Identifiers.favoriteShoeCell, for: indexPath) as! FavoriteShoeCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.favoriteShoeCell, for: indexPath) as! FavoriteShoeCell
         let selectedShoe = dataService.getFavoriteShoe()[indexPath.row]
         cell.shoe = selectedShoe.shoe
         cell.delegate = self
