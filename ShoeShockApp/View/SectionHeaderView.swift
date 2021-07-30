@@ -15,12 +15,10 @@ class SectionHeaderView: UICollectionReusableView {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var bballButton: UIButton!
-    @IBOutlet weak var bballBackground: UIView!
-    @IBOutlet weak var soccerButton: UIButton!
-    @IBOutlet weak var soccerBackground: UIView!
-    @IBOutlet weak var comfortButton: UIButton!
-    @IBOutlet weak var comfortBackground: UIView!
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var featuredButton: UIButton!
+    @IBOutlet weak var upcomingButton: UIButton!
+
     
     var delegate: SectionHeaderViewDelegate?
     
@@ -32,41 +30,31 @@ class SectionHeaderView: UICollectionReusableView {
     
     func updateUI() {
         stackView.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
-        stackView.spacing = 30
-        bballButton.layer.cornerRadius = 20
-        bballBackground.layer.cornerRadius = 20
-        soccerButton.layer.cornerRadius = 20
-        soccerBackground.layer.cornerRadius = 20
-        comfortButton.layer.cornerRadius = 20
-        comfortBackground.layer.cornerRadius = 20
+        stackView.spacing = 60
+        newButton.layer.cornerRadius = 20
+        featuredButton.layer.cornerRadius = 20
+        upcomingButton.layer.cornerRadius = 20
     }
     
     func manageButtons(senderButton: UIButton) {
         guard
-            let bballButton = bballButton,
-            let soccerButton = soccerButton,
-            let comfortButton = comfortButton
-                else { return }
-        guard
-            let bballBackground = bballBackground,
-            let soccerBackground = soccerBackground,
-            let comfortBackground = comfortBackground
-                else { return }
-        let buttons = [bballButton: bballBackground, soccerButton: soccerBackground, comfortButton: comfortBackground]
-        for (button, background) in buttons {
+            let newButton = newButton,
+            let featuredButton = featuredButton,
+            let upcomingButton = upcomingButton
+        else { return }
+        let buttons = [newButton, featuredButton, upcomingButton]
+        for (button) in buttons {
             if button == senderButton {
                 button.isSelected = true
-                background.backgroundColor = #colorLiteral(red: 0.1360040118, green: 0.1373505862, blue: 0.1373505862, alpha: 1)
             } else {
                 button.isSelected = false
-                background.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             }
         }
     }
     
     @IBAction func allTapped(_ sender: UIButton) {
         manageButtons(senderButton: sender)
-        delegate?.reloadCVDataWithSportIndex(sender.titleLabel?.text ?? "Basketball")
+        delegate?.reloadCVDataWithSportIndex(sender.titleLabel?.text ?? "Featured")
     }
     
 }

@@ -12,12 +12,12 @@ class DataService {
     static var instance = DataService()
     
     let categories: [Category] = [
-        Category(title: "Soccer"),
-        Category(title: "Basketball"),
-        Category(title: "Comfort")
+        Category(title: "Featured"),
+        Category(title: "New"),
+        Category(title: "Upcoming")
     ]
     
-    let bballShoes = [
+    let newShoes = [
         Shoe(image: "BBShoe01-Tilt", brand: "NIKE", name: "Air Max 1", price: 110.00, details: "Soft", color: "White"),
         Shoe(image: "BBShoe02-Tilt", brand: "NIKE", name: "Air Jordan Jumpman", price: 100.00, details: "Jump up your game", color: "Red"),
         Shoe(image: "BBShoe03-Tilt", brand: "NIKE", name: "Air Jordan Retro", price: 1500.00, details: "Classic", color: "Red"),
@@ -26,7 +26,7 @@ class DataService {
         Shoe(image: "BBShoe06-Tilt", brand: "NIKE", name: "Cloud Runners", price: 120.00, details: "Float around, like Mike", color: "Pink"),
         Shoe(image: "BBShoe07-Tilt", brand: "NIKE", name: "MoonShoes", price: 1000.00, details: "Bounce Bounce", color: "Red")
     ]
-    let soccerShoes = [
+    let featuredShoes = [
         Shoe(image: "SCShoe01-Tilt", brand: "ADIDAS", name: "Sasquatch", price: 80.00, details: "Large", color: "Red"),
         Shoe(image: "SCShoe02-Tilt", brand: "ADIDAS", name: "Marintoff", price: 80.00, details: "Large", color: "Gold"),
         Shoe(image: "SCShoe03-Tilt", brand: "ADIDAS", name: "BostonSauce", price: 80.00, details: "Large", color: "Teal"),
@@ -35,7 +35,7 @@ class DataService {
         Shoe(image: "SCShoe06-Tilt", brand: "NIKE", name: "Clarance", price: 80.00, details: "Large", color: "Orange"),
         Shoe(image: "SCShoe07-Tilt", brand: "ADIDAS", name: "Sock-Tock-Sick", price: 80.00, details: "Large", color: "Rainbow")
     ]
-    let comfortShoes = [
+    let upcomingShoes = [
         Shoe(image: "SCShoe01-Tilt", brand: "ADIDAS", name: "Vigilanties", price: 80.00, details: "Large", color: "Red"),
         Shoe(image: "SCShoe02-Tilt", brand: "ADIDAS", name: "Actual 2 HoneyBadger", price: 80.00, details: "Large", color: "Gold"),
         Shoe(image: "SCShoe03-Tilt", brand: "ADIDAS", name: "FoxBoxx", price: 80.00, details: "Large", color: "Teal"),
@@ -66,14 +66,14 @@ class DataService {
     }
     
     
-    func getBBallShoes() -> [Shoe] {
-        return bballShoes
+    func getNewShoes() -> [Shoe] {
+        return newShoes
     }
-    func getSoccerShoes() -> [Shoe] {
-        return soccerShoes
+    func getFeaturedShoes() -> [Shoe] {
+        return featuredShoes
     }
-    func getComfortShoes() -> [Shoe] {
-        return comfortShoes
+    func getUpcomingShoes() -> [Shoe] {
+        return upcomingShoes
     }
     func getMoreShoes() -> [Shoe] {
         return moreShoes
@@ -84,14 +84,14 @@ class DataService {
     
     func getShoes(forCategoryTitle title: String) -> [Shoe] {
         switch title {
-        case "Soccer":
-            return getSoccerShoes()
-        case "Basketball":
-            return getBBallShoes()
-        case "Comfort":
-            return getComfortShoes()
+        case "Featured":
+            return getFeaturedShoes()
+        case "New":
+            return getNewShoes()
+        case "Upcoming":
+            return getUpcomingShoes()
         default:
-            return getComfortShoes()
+            return getUpcomingShoes()
         }
     }
     
