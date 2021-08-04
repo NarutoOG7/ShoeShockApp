@@ -14,6 +14,7 @@ protocol CartCellTableViewDelegate {
 
 class CartCell: UITableViewCell {
     
+    @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var shoeImage: UIImageView!
     @IBOutlet weak var shoeNameLabel: UILabel!
     @IBOutlet weak var shoePriceLabel: UILabel!
@@ -40,10 +41,11 @@ class CartCell: UITableViewCell {
     
     func updateView(shoe: Shoe) {
         guard let selectedShoe = selectedShoe else { return }
-        shoeImage.image = UIImage(named: shoe.image)
-        shoeNameLabel.text = shoe.name
+        shoeImage.image = UIImage(named: shoe.images[0])
+        shoeNameLabel.text = "\(shoe.brand) \(shoe.name)"
         shoePriceLabel.text = String(format: "$%.2f", shoe.price)
         shoeQuantityLabel.text = "\(selectedShoe.quantity)"
+        colorView.layer.cornerRadius = 20
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {

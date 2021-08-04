@@ -29,9 +29,6 @@ class CartVC: UIViewController {
         updateTotalPriceLabel()
     }
     
-    @IBAction func purchasePressed(_ sender: UIButton) {
-        // New VC or create an alert?
-    }
     
     func updateTotalPriceLabel() {
         let totalCost = cartService.configureTotalCost()
@@ -42,18 +39,15 @@ class CartVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case K.Segues.toPurchase:
-            let purchaseVC = segue.destination as! PurchaseVC
-            purchaseVC.shoe = shoe
-        case K.Segues.toDetailsVC:
+        if segue.identifier == K.Segues.toDetailsVC {
             let detailsVC = segue.destination as! DetailsVC
             detailsVC.shoe = shoe
             detailsVC.previousVC = "Cart"
-        default:
-            return
         }
 
+    }
+    @IBAction func checkoutPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: K.Segues.toPurchase, sender: sender)
     }
     
     @IBAction func unwindFromDetailsVC(_ segue: UIStoryboardSegue) {

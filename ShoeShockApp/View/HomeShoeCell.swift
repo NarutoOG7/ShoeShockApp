@@ -42,7 +42,7 @@ class HomeShoeCell: UICollectionViewCell {
     
     func updateView(shoe: Shoe) {
         let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
-        shoeImage.image = UIImage(named: shoe.image)
+        
         shoeBrandLabel.text = shoe.brand
         shoeNameLabel.text = shoe.name
         shoePriceLabel.text = String(format: "$%.2f", shoe.price)
@@ -50,6 +50,9 @@ class HomeShoeCell: UICollectionViewCell {
         self.heartButton.setImage(UIImage(systemName: imageName), for: .normal)
         if collectionView == "more" {
             newLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+            shoeImage.image = UIImage(named: shoe.images[1])
+        } else {
+            shoeImage.image = UIImage(named: shoe.images[0])            
         }
         manageColors(shoe: shoe)
         

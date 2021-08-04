@@ -14,7 +14,7 @@ class  Shoe: Equatable {
     }
     
 
-    private(set) public var image: String
+    private(set) public var images: [String]
     private(set) public var brand: String
     var name: String
     private(set) public var price: Double
@@ -22,8 +22,8 @@ class  Shoe: Equatable {
     private(set) public var color: String
 
 
-    init(image: String, brand: String, name: String, price: Double, details: String, color: String) {
-        self.image = image
+    init(images: [String], brand: String, name: String, price: Double, details: String, color: String) {
+        self.images = images
         self.brand = brand
         self.name = name
         self.price = price

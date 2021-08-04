@@ -23,5 +23,6 @@ struct K {
         static let purchaseCell = "purchaseCell"
         static let sectionHeaderView = "SectionHeaderView"
         static let moreShoesCell = "moreShoesCell"
+        static let shoeImagesCell = "ShoeImageCell"
     }
 }

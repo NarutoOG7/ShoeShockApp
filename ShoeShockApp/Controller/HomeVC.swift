@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeVC: UIViewController {
-    
+
     @IBOutlet weak var mainShoeCollectionView: UICollectionView!
     @IBOutlet weak var moreShoesCollectionView: UICollectionView!
     @IBOutlet weak var nikeButton: UIButton!
@@ -21,9 +21,9 @@ class HomeVC: UIViewController {
     var cart = CartService()
     var cartService = CartService.instance
     var dataService = DataService.instance
-    var displayedCategory = ""
+    var displayedType = ""
     var displayedBrand = ""
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,8 +43,6 @@ class HomeVC: UIViewController {
             let detailsVC = segue.destination as! DetailsVC
             detailsVC.shoe = shoe
             detailsVC.previousVC = "Home"
-        } else if segue.identifier == K.Segues.toCartVC {
-            let cartVC = segue.destination as! CartVC
         }
     }
     
@@ -90,14 +88,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         if collectionView == moreShoesCollectionView {
             return 2
         } else {
-            return dataService.getShoes(forCategoryTitle: displayedCategory).count
+            return dataService.getShoes(forCategoryTitle: displayedType, forBrand: displayedBrand).count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mainShoeCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CellIdentifiers.homeShoeCell, for: indexPath) as! HomeShoeCell
-            let shoe = dataService.getShoes(forCategoryTitle: displayedCategory)[indexPath.row]
+            let shoe = dataService.getShoes(forCategoryTitle: displayedType, forBrand: displayedBrand)[indexPath.row]
             cell.shoe = shoe
             cell.collectionView = "main"
             cell.updateView(shoe: shoe)
@@ -113,9 +111,15 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        mainShoeCollectionView.deselectItem(at: indexPath, animated: false)
-        let theShoes = dataService.getShoes(forCategoryTitle: displayedCategory)
-        shoe = theShoes[indexPath.row]
+        if collectionView == mainShoeCollectionView {
+            mainShoeCollectionView.deselectItem(at: indexPath, animated: false)
+            let theShoes = dataService.getShoes(forCategoryTitle: displayedType, forBrand: displayedBrand)
+            shoe = theShoes[indexPath.row]
+        } else {
+            moreShoesCollectionView.deselectItem(at: indexPath, animated: false)
+            let theShoes = dataService.moreShoes
+            shoe = theShoes[indexPath.row]
+        }
         self.performSegue(withIdentifier: K.Segues.toDetailsVC, sender: indexPath)
     }
     
@@ -137,7 +141,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
 extension HomeVC: SectionHeaderViewDelegate {
     func reloadCVDataWithSportIndex(_ title: String) {
-        displayedCategory = title
+        displayedType = title
         mainShoeCollectionView.reloadData()
     }
 }

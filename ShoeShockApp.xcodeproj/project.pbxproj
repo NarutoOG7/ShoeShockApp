@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90BEF3626B4E67200406C09 /* addToBagAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90BEF3526B4E67200406C09 /* addToBagAlert.xib */; };
+		C91E9CBE26B77FE800E52CBB /* ShoeImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E9CBD26B77FE800E52CBB /* ShoeImageCollectionCell.swift */; };
 		C9292F342665BA500009C026 /* SelectedShoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F332665BA500009C026 /* SelectedShoe.swift */; };
 		C9292F3B266B1B510009C026 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9292F3A266B1B510009C026 /* CartService.swift */; };
 		C98A90682684CE6A00FCE0BE /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98A90662684CE6A00FCE0BE /* SectionHeaderView.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C90BEF3526B4E67200406C09 /* addToBagAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addToBagAlert.xib; sourceTree = "<group>"; };
+		C91E9CBD26B77FE800E52CBB /* ShoeImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeImageCollectionCell.swift; sourceTree = "<group>"; };
 		C9292F332665BA500009C026 /* SelectedShoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedShoe.swift; sourceTree = "<group>"; };
 		C9292F3A266B1B510009C026 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		C98A90662684CE6A00FCE0BE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
@@ -117,7 +121,9 @@
 				C9C7B033265C612100ED8A67 /* HomeShoeCell.swift */,
 				C9C7B03D265C652400ED8A67 /* CartCell.swift */,
 				C98A90662684CE6A00FCE0BE /* SectionHeaderView.swift */,
+				C90BEF3526B4E67200406C09 /* addToBagAlert.xib */,
 				C9D315992697EA5400765DE9 /* FavoriteShoeCell.swift */,
+				C91E9CBD26B77FE800E52CBB /* ShoeImageCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C90BEF3626B4E67200406C09 /* addToBagAlert.xib in Resources */,
 				C9C7B022265C4D7100ED8A67 /* LaunchScreen.storyboard in Resources */,
 				C9C7B01F265C4D7100ED8A67 /* Assets.xcassets in Resources */,
 				C9C7B01D265C4D6C00ED8A67 /* Main.storyboard in Resources */,
@@ -219,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91E9CBE26B77FE800E52CBB /* ShoeImageCollectionCell.swift in Sources */,
 				C9C7B041265C68A500ED8A67 /* K.swift in Sources */,
 				C9C7B034265C612100ED8A67 /* HomeShoeCell.swift in Sources */,
 				C98A90682684CE6A00FCE0BE /* SectionHeaderView.swift in Sources */,

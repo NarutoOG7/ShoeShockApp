@@ -19,9 +19,8 @@ class SectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var featuredButton: UIButton!
     @IBOutlet weak var upcomingButton: UIButton!
 
-    
     var delegate: SectionHeaderViewDelegate?
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -35,7 +34,7 @@ class SectionHeaderView: UICollectionReusableView {
         featuredButton.layer.cornerRadius = 20
         upcomingButton.layer.cornerRadius = 20
     }
-    
+
     func manageButtons(senderButton: UIButton) {
         guard
             let newButton = newButton,
@@ -52,9 +51,10 @@ class SectionHeaderView: UICollectionReusableView {
         }
     }
     
+
     @IBAction func allTapped(_ sender: UIButton) {
         manageButtons(senderButton: sender)
         delegate?.reloadCVDataWithSportIndex(sender.titleLabel?.text ?? "Featured")
     }
-    
+
 }
