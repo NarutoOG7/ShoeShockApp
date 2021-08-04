@@ -8,27 +8,26 @@
 import Foundation
 
 
-class  Shoe { // Equatable
+class  Shoe: Equatable {
+    static func == (lhs: Shoe, rhs: Shoe) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
 
-    private(set) public var image: String
+    private(set) public var images: [String]
+    private(set) public var brand: String
     var name: String
     private(set) public var price: Double
-    var quantity: Int
     private(set) public var details: String
-    private(set) public var key: String
-    
-    var isFavorited: Bool
-    var isInCart: Bool
-    
-    
-    init(image: String, name: String, price: Double, quantity: Int, details: String, key: String, isFavorited: Bool, isInCart: Bool) {
-        self.image = image
+    private(set) public var color: String
+
+
+    init(images: [String], brand: String, name: String, price: Double, details: String, color: String) {
+        self.images = images
+        self.brand = brand
         self.name = name
         self.price = price
-        self.quantity = quantity
         self.details = details
-        self.key = key
-        self.isFavorited = isFavorited
-        self.isInCart = isInCart
+        self.color = color
     }
 }

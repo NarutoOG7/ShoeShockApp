@@ -9,13 +9,12 @@ import UIKit
 
 protocol CartCellTableViewDelegate {
     func updateTableView()
-}
-protocol CartCellHeartDelegate {
-    func updateHeart()
+    func updateTotalCost()
 }
 
 class CartCell: UITableViewCell {
     
+    @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var shoeImage: UIImageView!
     @IBOutlet weak var shoeNameLabel: UILabel!
     @IBOutlet weak var shoePriceLabel: UILabel!
@@ -23,16 +22,12 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var stepper: UIStepper!
     
     var shoe: Shoe?
-    
     var dataService = DataService.instance
-    
-//    var shoes = DataService.instance.shoes
+    var cartService = CartService.instance
     var selectedShoe: SelectedShoe?
-    var index = IndexPath()
-    var cart = Cart.instance.cart
+    var cart = CartService.instance.cart
     var tableViewDelegate: CartCellTableViewDelegate?
-    var heartDelegate: CartCellHeartDelegate?
-    
+      
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,25 +40,27 @@ class CartCell: UITableViewCell {
     }
     
     func updateView(shoe: Shoe) {
-        shoeImage.image = UIImage(named: shoe.image)
-        shoeNameLabel.text = shoe.name
-        shoePriceLabel.text = "$\(shoe.price)"
-        shoeQuantityLabel.text = "\(shoe.quantity)"
+        guard let selectedShoe = selectedShoe else { return }
+        shoeImage.image = UIImage(named: shoe.images[0])
+        shoeNameLabel.text = "\(shoe.brand) \(shoe.name)"
+        shoePriceLabel.text = String(format: "$%.2f", shoe.price)
+        shoeQuantityLabel.text = "\(selectedShoe.quantity)"
+        colorView.layer.cornerRadius = 20
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         guard let shoe = shoe else { return }
-        let shoes = dataService.shoes
-        var shoeQuantity = Cart.instance.cart[index.row].quantity
-        shoeQuantity = Int(sender.value)
-        shoeQuantityLabel.text = String(shoeQuantity)
+        let shoeQuantity = Int(stepper.value)
+        let selectedShoe = SelectedShoe(shoe: shoe, quantity: 1)
+        let cartShoes = cartService.cart
+        guard let index = cartShoes.firstIndex(of: selectedShoe) else { return }
         if shoeQuantity == 0 {
-            shoes[index.row].isFavorited = false
-            shoes[index.row].isInCart = false
-            Cart.instance.removeShoe(shoe: shoe)
+            cartService.removeShoe(shoe: shoe)
             tableViewDelegate?.updateTableView()
-            heartDelegate?.updateHeart()
         }
+        cartShoes[index].quantity = shoeQuantity
+        shoeQuantityLabel.text = String(shoeQuantity)
+        tableViewDelegate?.updateTotalCost()
     }
     
     

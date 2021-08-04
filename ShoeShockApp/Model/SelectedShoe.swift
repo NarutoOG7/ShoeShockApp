@@ -14,15 +14,13 @@ class SelectedShoe: Equatable {
     }
    
     var shoe: Shoe
-    var quantity = 0
-    var totalCost = 0.0
+    var quantity: Int
+    var isFavorited: Bool = false
+    var isInCart: Bool = false
     
     init(shoe: Shoe, quantity: Int) {
         self.shoe = shoe
         self.quantity = quantity
     }
-    
-    func calculateTotal() {
-        totalCost = shoe.price * Double(quantity)
-    }
+
 }
