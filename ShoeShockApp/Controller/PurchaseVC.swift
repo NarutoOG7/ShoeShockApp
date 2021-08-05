@@ -19,10 +19,7 @@ class PurchaseVC: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
-<<<<<<< HEAD
     var shoe: Shoe?
-=======
->>>>>>> noSectionHeader
     var cartService = CartService.instance
     
     override func viewDidLoad() {
@@ -33,10 +30,8 @@ class PurchaseVC: UIViewController {
         mainView.layer.cornerRadius = 15
         
         confirmButton.layer.cornerRadius = 20
-<<<<<<< HEAD
-=======
+
         mainView.layer.cornerRadius = 15
->>>>>>> noSectionHeader
         updatePriceLabels()
     }
     

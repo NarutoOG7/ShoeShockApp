@@ -17,6 +17,7 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var shoeDetailsTextView: UITextView!
     @IBOutlet weak var sizePickerView: UIPickerView!
     @IBOutlet weak var addToFavorites: UIButton!
+    @IBOutlet weak var addToBag: UIButton!
     
     var shoe: Shoe?
     var dataService = DataService.instance
@@ -52,6 +53,8 @@ class DetailsVC: UIViewController {
         shoeDetailsTextView.text = shoe.details
         let favTitle = dataService.favoritedShoes.firstIndex(of: selectedShoe) != nil ? "FAVORITED" : "ADD TO FAVORITES"
         self.addToFavorites.setTitle(favTitle, for: .normal)
+        addToFavorites.layer.cornerRadius = 5
+        addToBag.layer.cornerRadius = 5
     }
     
     

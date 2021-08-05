@@ -34,11 +34,8 @@ class FavoriteShoeCell: UICollectionViewCell {
     }
     
     func updateView(shoe: Shoe) {
-<<<<<<< HEAD
-        shoeImage.image = UIImage(named: shoe.image)
-=======
+
         shoeImage.image = UIImage(named: shoe.images[0])
->>>>>>> noSectionHeader
         shoeTitle.text = shoe.name
     }
 }

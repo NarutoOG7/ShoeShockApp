@@ -12,6 +12,7 @@ class CartVC: UIViewController {
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
+    @IBOutlet weak var checkoutButton: UIButton!
     var cartService = CartService.instance
     var dataService = DataService.instance
     var shoe: Shoe?
@@ -22,11 +23,13 @@ class CartVC: UIViewController {
         
         cartTableView.dataSource = self
         cartTableView.delegate = self
+        checkoutButton.layer.cornerRadius = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {
         cartTableView.reloadData()
         updateTotalPriceLabel()
+        
     }
     
     
@@ -60,6 +63,8 @@ class CartVC: UIViewController {
     
 }
 
+//MARK: - CartTableView DataSource and Delegate
+
 extension CartVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +95,7 @@ extension CartVC: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+//MARK: - CartCellTableView Delegate
 
 extension CartVC: CartCellTableViewDelegate {
     func updateTableView() {

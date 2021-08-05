@@ -21,8 +21,8 @@ class HomeVC: UIViewController {
     var cart = CartService()
     var cartService = CartService.instance
     var dataService = DataService.instance
-    var displayedType = ""
-    var displayedBrand = ""
+    var displayedType = "Featured"
+    var displayedBrand = "Nike"
         
     override func viewDidLoad() {
         super.viewDidLoad()
