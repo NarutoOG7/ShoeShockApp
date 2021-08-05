@@ -43,6 +43,7 @@ class DataService {
         static let featuredAdidasShoes = [adidasShoes[1]]
         static let upcomingAdidasShoes = [adidasShoes[2]]
     }
+    
     struct JordanShoes {
         static let jordanShoes = [
             Shoe(images: ["Jordan01-Tilt", "Jordan01", "Jordan02-Tilt", "Jordan02", "blank"], brand: "Air Jordan", name: "Flight Plate 2013", price: 191.00, details: "The Flight Plate's main purpose is to maximize the responsiveness of Zoom Air cushioning. By compressing and deflecting on the units during action, the Flight Plate unlocks the power of Zoom Air. The pressure of the Flight Plate against the Zoom bags help to create a new level of responsiveness and cushion that you can actually feel compressing and decompressing on the court.", color: "Orange"),

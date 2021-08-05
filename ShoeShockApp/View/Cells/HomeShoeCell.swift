@@ -62,21 +62,21 @@ class HomeShoeCell: UICollectionViewCell {
         if collectionView == "main" {
             switch shoe.color {
             case "Yellow":
-                colorView.backgroundColor = #colorLiteral(red: 0.2042783797, green: 0.3222076893, blue: 0.7527406812, alpha: 1)
+                colorView.backgroundColor = #colorLiteral(red: 0.2042783797, green: 0.3222076893, blue: 0.7527406812, alpha: 0.7649828767)
             case "Orange":
                 colorView.backgroundColor = #colorLiteral(red: 1, green: 0.5751052266, blue: 0.1020977928, alpha: 1)
             case "Red":
-                colorView.backgroundColor = #colorLiteral(red: 0.8287264109, green: 0.2369448543, blue: 0.2414448261, alpha: 1)
+                colorView.backgroundColor = #colorLiteral(red: 0.8287264109, green: 0.2369448543, blue: 0.2414448261, alpha: 0.8939961473)
             case "Teal":
                 colorView.backgroundColor = #colorLiteral(red: 0.4455852509, green: 0.7662628889, blue: 0.7618182302, alpha: 1)
             case "Pink":
-                colorView.backgroundColor = #colorLiteral(red: 0.8391886353, green: 0.384077251, blue: 0.4953073859, alpha: 1)
+                colorView.backgroundColor = #colorLiteral(red: 0.8391886353, green: 0.3515944803, blue: 0.6880616212, alpha: 0.8819563356)
             case "Rainbow":
                 colorView.backgroundColor = #colorLiteral(red: 0.777528584, green: 0.1387701929, blue: 0.3861692548, alpha: 1)
             case "Gold":
                 colorView.backgroundColor = #colorLiteral(red: 0.922393024, green: 0.8218020797, blue: 0.6735435128, alpha: 1)
             default:
-                colorView.backgroundColor = #colorLiteral(red: 0.5885350571, green: 0.4915484524, blue: 0.5867741847, alpha: 1)
+                colorView.backgroundColor = #colorLiteral(red: 0.0994903617, green: 0.2357878373, blue: 0.8330028553, alpha: 0.5)
             }
             colorView.layer.cornerRadius = 20
         }

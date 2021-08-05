@@ -16,7 +16,7 @@ class  Shoe: Equatable {
 
     private(set) public var images: [String]
     private(set) public var brand: String
-    var name: String
+    private(set) public var name: String
     private(set) public var price: Double
     private(set) public var details: String
     private(set) public var color: String

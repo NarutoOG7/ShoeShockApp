@@ -118,12 +118,9 @@
 		C9C7B02B265C602F00ED8A67 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C9C7B033265C612100ED8A67 /* HomeShoeCell.swift */,
-				C9C7B03D265C652400ED8A67 /* CartCell.swift */,
+				C9D1B53A26BB6BEB00BC18DE /* Cells */,
 				C98A90662684CE6A00FCE0BE /* SectionHeaderView.swift */,
 				C90BEF3526B4E67200406C09 /* addToBagAlert.xib */,
-				C9D315992697EA5400765DE9 /* FavoriteShoeCell.swift */,
-				C91E9CBD26B77FE800E52CBB /* ShoeImageCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,6 +150,17 @@
 				C9C7B040265C68A500ED8A67 /* K.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		C9D1B53A26BB6BEB00BC18DE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C91E9CBD26B77FE800E52CBB /* ShoeImageCollectionCell.swift */,
+				C9D315992697EA5400765DE9 /* FavoriteShoeCell.swift */,
+				C9C7B033265C612100ED8A67 /* HomeShoeCell.swift */,
+				C9C7B03D265C652400ED8A67 /* CartCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
